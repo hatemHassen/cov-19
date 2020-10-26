@@ -1,0 +1,20 @@
+common:
+  back: Retour
+  create: Créer
+dashboard:
+  index:
+    totalFolders: Nb dossiers total
+    activeFolders: Nb dossiers actifs
+    closedFolders: Nb dossiers clôturés
+    newFolders: Nb nouveaux dossiers
+base:
+  dashbord: Tableau de board
+  towns: Villes
+  title: Cov-19.tn
+
+town:
+  listTownAction:
+    towns: Villes
+    new: Créer une nouvelle ville
+  createTownAction:
+    newTown: Nouvelle ville

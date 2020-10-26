@@ -1,0 +1,20 @@
+parameters:
+services:
+    # default configuration for services in *this* file
+    _defaults:
+        autowire: true      # Automatically injects dependencies in your services.
+        autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
+
+    App\:
+        resource: '../src/*'
+        exclude: '../src/{DependencyInjection,Entity,Migrations,Tests,Kernel.php}'
+
+
+    App\Infrastructure\Action\:
+        resource: '../src/Infrastructure/Action'
+        tags: ['controller.service_arguments']
+
+    App\Domain\Model\Town\TownRepositoryInterface:  '@App\Infrastructure\Repository\Doctrine\TownRepository'
+
+
+

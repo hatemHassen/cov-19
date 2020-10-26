@@ -1,0 +1,19 @@
+town_create:
+  path: '/town/create'
+  defaults: { _controller: 'App\Infrastructure\Action\Town\CreateTownAction' }
+
+town_list:
+  path: '/town/list'
+  defaults: { _controller: 'App\Infrastructure\Action\Town\ListTownAction' }
+
+login:
+  path: '/login'
+  defaults: { _controller: 'App\Infrastructure\Action\Login\LoginUserAction' }
+
+logout:
+  path: '/logout'
+  defaults: { _controller: 'App\Infrastructure\Action\Login\LogoutUserAction' }
+
+dashboard:
+  path: '/'
+  defaults: { _controller: 'App\Infrastructure\Action\Dashboard\DashboardAction' }

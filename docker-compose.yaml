@@ -1,0 +1,33 @@
+version: '3.7'
+services:
+  db:
+    image: mysql:5.7
+    ports:
+      - "3307:3306"
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
+      MYSQL_USER: 'root'
+    volumes:
+      - /data/www/covid-19/docker/mysql:/var/lib/mysql
+
+  maildev:
+    image: djfarrelly/maildev
+    ports:
+      - "8002:80"
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    ports:
+      - "8080:80"
+    depends_on:
+      - db
+    environment:
+      PMA_HOST: db
+
+  php740:
+    build: docker/php740
+    ports:
+      - "9074:80"
+    volumes:
+      - ./docker/vhosts:/etc/apache2/sites-enabled
+      - /data/www/cov-19:/data/www

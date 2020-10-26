@@ -1,0 +1,14 @@
+
+App\Domain\Model\Town\Town:
+  type: entity
+  table: town
+  repositoryClass: App\Infrastructure\Repository\Doctrine\TownRepository
+  id:
+    id:
+      type: string
+      generator:
+        strategy: UUID
+  fields:
+    name:
+      type: string
+      length: 255
