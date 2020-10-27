@@ -2,13 +2,15 @@
 var Encore = require('@symfony/webpack-encore');
 
 Encore
-    .setOutputPath('public/build/')
+    .setOutputPath('public_html/build/')
     .setPublicPath('/build')
     .cleanupOutputBeforeBuild()
-    .addEntry('app', './assets/js/main.js')
-    .addStyleEntry('global', './assets/scss/admin.scss')
+    .addEntry('back-js', './assets/back/js/main.js')
+    .addEntry('front-js', './assets/front/js/main.js')
+    .addStyleEntry('back-css', './assets/back/scss/admin.scss')
+    .addStyleEntry('front-css', './assets/front/scss/front.scss')
     // Views
-    .addEntry('js/dashboard', './assets/js/views/dashboard.js')
+    .addEntry('js/dashboard', './assets/back/js/views/dashboard.js')
     .enableSassLoader()
     .autoProvidejQuery()
     .enableSourceMaps(!Encore.isProduction())

@@ -1,7 +1,7 @@
 <?php
 
 
-namespace App\Infrastructure\Action\Dashboard;
+namespace App\Infrastructure\Action\Home;
 
 use App\Application\Query\ListTownQuery;
 use App\Infrastructure\Action\Action;
@@ -12,14 +12,8 @@ use Twig\Error\LoaderError;
 use Twig\Error\RuntimeError;
 use Twig\Error\SyntaxError;
 
-class DashboardAction implements Action
+class HomeAction implements Action
 {
-    private $listTownQuery;
-
-    public function __construct(ListTownQuery $listTownQuery)
-    {
-        $this->listTownQuery = $listTownQuery;
-    }
 
     /**
      * @param Request $request
@@ -32,9 +26,7 @@ class DashboardAction implements Action
     public function __invoke(Request $request, Environment $environment): Response
     {
 
-        return new Response($environment->render('back/dashboard/index.html.twig',[
-            'towns' => $this->listTownQuery->execute(),
-        ]));
+        return new Response($environment->render('front/home/index.html.twig'));
     }
 
 }

@@ -33,13 +33,13 @@ class LoginUserAction implements Action
     {
         $user = $this->getUser();
         if ($user instanceof UserInterface) {
-            return $this->redirectToRoute('main_dashboard');
+            return $this->redirectToRoute('dashboard');
         }
         $error = $authenticationUtils->getLastAuthenticationError();
         $lastUsername = $authenticationUtils->getLastUsername();
 
         return new Response(
-            $environment->render('security/login.html.twig', [
+            $environment->render('back/security/login.html.twig', [
                 'last_username' => $lastUsername,
                 'error' => $error,
             ])

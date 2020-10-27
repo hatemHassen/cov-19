@@ -7,23 +7,21 @@ security:
         users_in_memory:
             memory:
                 users:
-                    admin: { password: '$argon2id$v=19$m=65536,t=4,p=1$HQkYFkp1m80ArN9np39flA$XDaWWi4xPmPqcIs4Hgc5QKB/iPpxwrCOf9ptv/f9qZc' , roles: 'ROLE_ADMIN' , name: 'Admin' }
+                    admin: { password: '$argon2id$v=19$m=65536,t=4,p=1$HQkYFkp1m80ArN9np39flA$XDaWWi4xPmPqcIs4Hgc5QKB/iPpxwrCOf9ptv/f9qZc' , roles: 'ROLE_ADMIN' }
     firewalls:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
-        main:
+        admin:
             anonymous: ~
             form_login:
                 login_path: 'login'
                 check_path: 'login'
+                default_target_path: 'dashboard'
             logout:
                 path: 'logout'
+                target: 'login'
             provider: users_in_memory
-            remember_me:
-                secret:   '%kernel.secret%'
-                lifetime: 604800 # 1 week in seconds
-                path:     /
     access_control:
-        - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/, roles: ROLE_ADMIN }
+        - { path: ^/admin/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/admin, roles: ROLE_ADMIN }

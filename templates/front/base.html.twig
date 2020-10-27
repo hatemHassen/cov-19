@@ -1,0 +1,178 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+    <meta charset="utf-8">
+
+    <!--====== Title ======-->
+    <title>Appi - Bootstrap 5 HTML5 App Landing Page Template</title>
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--====== Favicon Icon ======-->
+    <link rel="icon" href="{{asset('images/favicon.png')}}" sizes="32x32">
+
+    <!--====== Animate CSS ======-->
+    <link href="{{ asset('build/front-css.css') }}" rel="stylesheet" type="text/css"/>
+
+</head>
+
+<body>
+<!--[if IE]>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+<![endif]-->
+
+<!--====== PRELOADER PART START ======-->
+
+<div class="preloader">
+    <div class="loader">
+        <div class="ytp-spinner">
+            <div class="ytp-spinner-container">
+                <div class="ytp-spinner-rotator">
+                    <div class="ytp-spinner-left">
+                        <div class="ytp-spinner-circle"></div>
+                    </div>
+                    <div class="ytp-spinner-right">
+                        <div class="ytp-spinner-circle"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--====== PRELOADER PART ENDS ======-->
+
+<!--====== HEADER PART START ======-->
+
+<header class="header_area">
+    <div id="header_navbar" class="header_navbar">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <nav class="navbar navbar-expand-lg">
+                        <a class="navbar-brand" href="index.html">
+                            <img id="logo" src="{{ asset('images/logo.svg') }}" alt="Logo">
+                        </a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="toggler-icon"></span>
+                            <span class="toggler-icon"></span>
+                            <span class="toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse sub-menu-bar" id="navbarSupportedContent">
+                            <ul id="nav" class="navbar-nav ml-auto">
+                                <li class="nav-item">
+                                    <a class="page-scroll active" href="#home">Home</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="page-scroll" href="#feature">Feature</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="page-scroll" href="#how-work">How it Works</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="page-scroll" href="#screenshots">Screenshots</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="page-scroll" href="#pricing">Pricing</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="page-scroll" href="#contact">Contact</a>
+                                </li>
+                            </ul>
+                        </div> <!-- navbar collapse -->
+                    </nav> <!-- navbar -->
+                </div>
+            </div> <!-- row -->
+        </div> <!-- container -->
+    </div> <!-- header navbar -->
+</header>
+
+<!--====== HEADER PART ENDS ======-->
+
+{% block content %}
+
+{% endblock  %}
+
+<!--====== FOOTER PART START ======-->
+<footer id="footer" class="footer-area bg_cover">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-3 col-lg-4 col-md-6">
+                <div class="footer-widget wow fadeInUp" data-wow-delay=".2s">
+                    <a href="#" class="mb-35 d-block"><img src="{{ asset('images/logo.svg') }}" alt=""> </a>
+                    <p class="mb-35">Lorem ipsum dolor sit aconsetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore.</p>
+                    <ul class="social-links">
+                        <li><a href="#" class="facebook"><i class="lni lni-facebook-original"></i></a></li>
+                        <li><a href="#" class="twitter"><i class="lni lni-twitter-original"></i></a></li>
+                        <li><a href="#" class="instagram"><i class="lni lni-instagram-original"></i></a></li>
+                        <li><a href="#" class="linkedin"><i class="lni lni-linkedin-original"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-xl-2 offset-xl-1 col-lg-2 col-md-6">
+                <div class="footer-widget wow fadeInUp" data-wow-delay=".4s">
+                    <h4>Useful Links</h4>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Feature</a></li>
+                        <li><a href="#">How it Work</a></li>
+                        <li><a href="#">Screenshots</a></li>
+                        <li><a href="#">Pricing</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-xl-2 col-lg-2 col-md-6">
+                <div class="footer-widget wow fadeInUp" data-wow-delay=".6s">
+                    <h4>Product Help</h4>
+                    <ul>
+                        <li><a href="#">FAQs</a></li>
+                        <li><a href="#">Privacy</a></li>
+                        <li><a href="#">Policy</a></li>
+                        <li><a href="#">Support</a></li>
+                        <li><a href="#">Team</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-xl-4 col-lg-4 col-md-6">
+                <div class="footer-widget wow fadeInUp" data-wow-delay=".8s">
+                    <h4>Subscribe Newsletter</h4>
+                    <form
+                            action="#" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" target="_blank" novalidate
+                            class="subscribe-form validate">
+
+                        <input type="email" name="EMAIL" id="EMAIL" class="required email" placeholder="Enter Mail Address">
+
+                        <div id="mce-responses" class="clear">
+                            <div class="response" id="mce-error-response" style="display:none"></div>
+                            <div class="response" id="mce-success-response" style="display:none"></div>
+                        </div>
+                        <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+                        <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text"
+                                                                                                  name="b_4dbefd9d3a1d6a570020b1e85_e16d098ae8" tabindex="-1" value=""></div>
+                        <button id="subscribe" class="btn-hover main-btn text-right" type="submit">Submit</button>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-cradit">
+            <p class="text-center mb-0">Designed and Developed by <a href="https://uideck.com" rel="nofollow">UIdeck</a></p>
+        </div>
+    </div>
+</footer>
+<!--====== FOOTER PART ENDS ======-->
+
+<!--====== BACK TOP TOP PART START ======-->
+<a href="#" class="back-to-top btn-hover"><i class="lni lni-chevron-up"></i></a>
+<!--====== BACK TOP TOP PART ENDS ======-->
+
+<!--====== Main js ======-->
+<script type="text/javascript" src="{{ asset('build/front-js.js') }}"></script>
+
+</body>
+
+</html>
