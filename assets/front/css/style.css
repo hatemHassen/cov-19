@@ -2039,41 +2039,40 @@ textarea:focus {
   padding: 10px 30px 30px;
 }
 
-.pricing-area .single-price {
+.situation-area .single-chart {
   border-radius: 10px;
   background: #fff;
   -webkit-box-shadow: 0px -31px 51px rgba(165, 165, 165, 0.16);
   box-shadow: 0px -31px 51px rgba(165, 165, 165, 0.16);
-  padding: 40px 50px 0;
   margin-bottom: 60px;
   -webkit-transition: all 0.3s ease-out 0s;
   transition: all 0.3s ease-out 0s;
 }
 
-.pricing-area .single-price .price-icon {
+.situation-area .single-chart .situation-icon {
   margin-bottom: 25px;
 }
 
-.pricing-area .single-price h4 {
+.situation-area .single-chart h4 {
   font-size: 23px;
   font-weight: 600;
 }
 
-.pricing-area .single-price .package-price {
+.situation-area .single-chart .package-situation {
   color: #DE5088;
 }
 
-.pricing-area .single-price .package-details {
+.situation-area .single-chart .package-details {
   margin-bottom: 30px;
 }
 
-.pricing-area .single-price .package-details li {
+.situation-area .single-chart .package-details li {
   font-size: 16px;
   line-height: 32px;
   color: #868AAA;
 }
 
-.pricing-area .single-price .price-btn {
+.situation-area .single-chart .situation-btn {
   padding: 12px 32px;
   font-size: 16px;
   font-weight: 600;
@@ -2081,26 +2080,26 @@ textarea:focus {
   margin-bottom: -25px;
 }
 
-.pricing-area .single-price:hover {
+.situation-area .single-chart:hover {
   -webkit-box-shadow: 0px 0px 51px rgba(165, 165, 165, 0.16);
   box-shadow: 0px 0px 51px rgba(165, 165, 165, 0.16);
 }
 
-.pricing-area .single-price:hover .price-icon {
+.situation-area .single-chart:hover .situation-icon {
   border-radius: 50%;
 }
 
-.pricing-area .single-price.active {
+.situation-area .single-chart.active {
   -webkit-box-shadow: 0px 0px 51px rgba(165, 165, 165, 0.16);
   box-shadow: 0px 0px 51px rgba(165, 165, 165, 0.16);
 }
 
-.pricing-area .single-price.active .price-btn {
+.situation-area .single-chart.active .situation-btn {
   background: -webkit-gradient(linear, left top, left bottom, from(#dc4985), to(#f18da2));
   background: linear-gradient(#dc4985 0%, #f18da2 100%);
 }
 
-.pricing-area .pricing-nav .nav-pills .nav-item .nav-link {
+.situation-area .chart-nav .nav-pills .nav-item .nav-link {
   color: #505478;
   font-size: 18px;
   font-weight: 600;
@@ -2110,7 +2109,7 @@ textarea:focus {
   z-index: 1;
 }
 
-.pricing-area .pricing-nav .nav-pills .nav-item .nav-link::after {
+.situation-area .chart-nav .nav-pills .nav-item .nav-link::after {
   content: '';
   position: absolute;
   width: 0;
@@ -2125,12 +2124,12 @@ textarea:focus {
   transition: all 0.3s ease-out 0s;
 }
 
-.pricing-area .pricing-nav .nav-pills .nav-item .nav-link.active {
+.situation-area .chart-nav .nav-pills .nav-item .nav-link.active {
   color: #fff;
   background: none;
 }
 
-.pricing-area .pricing-nav .nav-pills .nav-item .nav-link.active::after {
+.situation-area .chart-nav .nav-pills .nav-item .nav-link.active::after {
   width: 100%;
 }
 
@@ -2240,7 +2239,7 @@ textarea:focus {
 }
 
 .footer-area {
-  background-image: url("../../../public_html/images/footer-bg.png");
+  /*background-image: url("../../../public_html/images/footer-bg.png");*/
   padding-top: 365px;
 }
 

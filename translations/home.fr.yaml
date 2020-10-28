@@ -1,0 +1,37 @@
+home:
+  header:
+      title: Actualités sur la situation sanitaire à Moknine
+      subtitle: Toutes les actualités Covid-19
+      description: Covid-19
+  sections:
+    keyNumbers:
+     title: Les chiffres clés
+     totalCases: Nb. total de cas
+     actifCases: Nb. des cas actifs
+     healedCases: Nb. des cas rétablis
+     deathCases: Nb. de décès
+    quizz:
+      title: Remplir le formulaire de consultation et de référence pour un patient suspecté de Covid 19
+      description: Ce formulaire peut nous aider à connaître l'étendue de la propagation de la maladie dans notre autorité sanitaire et ainsi nous pouvons intervenir et préparer .
+      start: Commencer
+    situation:
+      title: La situation Actuelle
+      description: La dernière mise à jour de la situation actuelle
+    contact:
+      faq:
+        title: 'Vous cherchez une réponse ?'
+        faq: 'Les questions les plus fréquentes '
+        whatIsCovid: Qu'est-ce qu c'est le nouveau coronavirus?
+        whatIsCovidAnswer: Le nouveau coronavirus est un nouveau virus qui n'a pas été identifié auparavant. Le virus causant la maladie à coronavirus 2019 (COVID-19), n'est pas le même que les coronavirus qui circulent couramment chez les humains et provoquent une maladie bénigne, comme le rhume.
+        whyIsCalledCovid: Pourquoi la maladie est-elle appelée maladie à coronavirus 2019, COVID-19?
+        whyIsCalledCovidAnswer: "Le 11 février 2020, l'Organisation mondiale de la santé a annoncé un nom officiel pour la maladie à l'origine de l'épidémie de nouveau coronavirus de 2019, identifiée pour la première fois à Wuhan en Chine. Le nouveau nom de cette maladie est la maladie à coronavirus 2019, en abrégé COVID-19. Dans COVID-19, «CO» signifie «corona», «VI» pour «virus» et «D» pour maladie. Auparavant, cette maladie était appelée «nouveau coronavirus 2019» ou «2019-nCoV».
+          Il existe de nombreux types de coronavirus humains, dont certains causent généralement des maladies bénignes des voies respiratoires supérieures. Le COVID-19 est une nouvelle maladie, causée par un nouveau (ou nouveau) coronavirus qui n'a jamais été vu chez l'homme."
+        howCovidSpread: Comment le virus se propage-t-il?
+        howCovidSpreadAnswer: "Le virus qui cause le COVID-19 se propage le plus souvent entre les personnes qui sont en contact étroit les unes avec les autres (à moins de 6 pieds ou 2 longueurs de bras). Il se propage par des gouttelettes respiratoires ou de petites particules, telles que celles contenues dans les aérosols, produites lorsqu'une personne infectée tousse, éternue, chante, parle ou respire.          Ces particules peuvent être inhalées dans le nez, la bouche, les voies respiratoires et les poumons et provoquer une infection. On pense que c'est la principale voie de propagation du virus.          Les gouttelettes peuvent également atterrir sur des surfaces et des objets et être transférées au toucher. Une personne peut contracter le COVID-19 en touchant la surface ou l'objet contenant le virus, puis en touchant sa propre bouche, son nez ou ses yeux. On ne pense pas que la propagation à partir de surfaces en contact soit la principale voie de propagation du virus.          Il est possible que le COVID-19 se propage à travers les gouttelettes et les particules en suspension dans l'air qui se forment lorsqu'une personne qui a le COVID-19 tousse, éternue, chante, parle ou respire. Il y a de plus en plus de preuves que les gouttelettes et les particules en suspension dans l'air peuvent rester en suspension dans l'air et être respirées par d'autres, et parcourir des distances de plus de 6 pieds (par exemple, pendant la pratique de la chorale, dans les restaurants ou dans les cours de fitness). En général, les environnements intérieurs sans une bonne ventilation augmentent ce risque.          Le COVID-19 semble se propager facilement et durablement dans la communauté («propagation communautaire») dans de nombreuses zones géographiques touchées. La propagation communautaire signifie que des personnes ont été infectées par le virus dans une région, y compris certaines personnes qui ne savent pas comment et où elles ont été infectées."
+        howCanIProtectMyself: Comment puis-je me protéger?'
+        howCanIProtectMyselfAnswer: Visitez la page Comment vous protéger et protéger les autres pour savoir comment vous protéger contre les maladies respiratoires, comme le COVID-19.
+      contact:
+        title: Avez-vous des questions?
+        name: Nom
+        email: Email
+        message: Message

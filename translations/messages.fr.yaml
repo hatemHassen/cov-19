@@ -1,6 +1,7 @@
 common:
   back: Retour
   create: Créer
+  send: Envoyer
 dashboard:
   index:
     totalFolders: Nb dossiers total
@@ -18,3 +19,10 @@ town:
     new: Créer une nouvelle ville
   createTownAction:
     newTown: Nouvelle ville
+home:
+  menu:
+    home: Accueil
+    keyNumbers: Chiffres clés
+    survey: Remplir le formulaire
+    situation: Situation Actuelle
+    contact: Contact

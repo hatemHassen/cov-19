@@ -1,0 +1,19 @@
+
+App\Domain\Model\Contact\Contact:
+  type: entity
+  table: contact
+  repositoryClass: App\Infrastructure\Repository\Doctrine\ContactRepository
+  id:
+    id:
+      type: string
+      generator:
+        strategy: UUID
+  fields:
+    name:
+      type: string
+      length: 255
+    email:
+      type: string
+      length: 255
+    message:
+      type: text

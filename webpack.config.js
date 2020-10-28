@@ -7,6 +7,7 @@ Encore
     .cleanupOutputBeforeBuild()
     .addEntry('back-js', './assets/back/js/main.js')
     .addEntry('front-js', './assets/front/js/main.js')
+    .addEntry('home', './assets/front/js/views/home.js')
     .addStyleEntry('back-css', './assets/back/scss/admin.scss')
     .addStyleEntry('front-css', './assets/front/scss/front.scss')
     // Views
