@@ -6,8 +6,6 @@ namespace App\Domain\Model\Contact;
 
 class Contact
 {
-    public const  CREATED = 'contact.created';
-
     protected $id;
     /**
      * @var string

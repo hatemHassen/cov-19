@@ -7,6 +7,7 @@ namespace App\Application\CommandHandler;
 use App\Application\Command\ContactCommand;
 use App\Domain\Model\Contact\Contact;
 use App\Domain\Model\Contact\ContactEvent;
+use App\Domain\Model\Contact\ContactEvents;
 use App\Domain\Model\Contact\ContactRepositoryInterface;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\Messenger\Handler\MessageHandlerInterface;
@@ -47,7 +48,7 @@ class ContactCommandHandler implements MessageHandlerInterface
         );
 
         $this->contactRepository->create($contact);
-        $this->eventDispatcher->dispatch(new ContactEvent($contact), Contact::CREATED);
+        $this->eventDispatcher->dispatch(new ContactEvent($contact), ContactEvents::CREATED);
 
     }
 

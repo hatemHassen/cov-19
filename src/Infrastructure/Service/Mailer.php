@@ -4,13 +4,11 @@
 namespace App\Infrastructure\Service;
 
 
-use App\Application\Service\MailerInterface;
 use App\Domain\Model\Message\Message;
 use Symfony\Component\Mailer\MailerInterface as SymfonyMailer;
 use Symfony\Component\Mime\Email;
 
-class Mailer implements MailerInterface
-{
+class Mailer {
     /**
      * @var SymfonyMailer
      */

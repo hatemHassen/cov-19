@@ -6,14 +6,13 @@ namespace App\Application\Query;
 
 use App\Domain\Model\Town\Town;
 use App\Domain\Model\Town\TownEvent;
+use App\Domain\Model\Town\TownEvents;
 use App\Domain\Model\Town\TownRepositoryInterface;
 use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 
 class ListTownQuery implements Query
 {
-
-   protected const LISTED = 'town.listed';
 
     private $townRepository;
     private $eventDispatcher;
@@ -36,7 +35,7 @@ class ListTownQuery implements Query
         foreach ($list as $configuration) {
             $this->eventDispatcher->dispatch(
                 new TownEvent($configuration),
-                self::LISTED
+                TownEvents::LISTED
             );
         }
 

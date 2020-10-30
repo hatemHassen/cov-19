@@ -1,0 +1,58 @@
+
+App\Domain\Model\Patient\Patient:
+  type: entity
+  table: patient
+  repositoryClass: App\Infrastructure\Repository\Doctrine\PatientRepository
+  id:
+    id:
+      type: string
+      generator:
+        strategy: UUID
+  fields:
+    email:
+      type: string
+      length: 255
+    lastName:
+      type: string
+      length: 255
+    firstName:
+      type: string
+      length: 255
+    gender:
+      type: boolean
+    age:
+      type: integer
+    city:
+      type: string
+      length: 255
+    zipCode:
+      type: string
+      length: 255
+    street:
+      type: string
+      length: 255
+    phone:
+      type: string
+      length: 255
+    mobile:
+      type: string
+      length: 255
+    antecedent:
+      type: json_array
+    treatment:
+      type: json_array
+    symptoms:
+      type: json_array
+    symptomsStartDate:
+      type: date
+    emergencyVisited:
+      type: boolean
+    temperature:
+      type: float
+    breathingFrequency:
+      type: float
+    oxygenSaturation:
+      type: float
+    heartBeat:
+      type: float
+

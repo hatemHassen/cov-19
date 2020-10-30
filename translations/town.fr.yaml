@@ -1,0 +1,7 @@
+town:
+  listTownAction:
+    towns: Villes
+    new: Créer une nouvelle ville
+  createTownAction:
+    newTown: Nouvelle ville
+

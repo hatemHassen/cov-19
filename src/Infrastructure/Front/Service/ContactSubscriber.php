@@ -4,8 +4,8 @@
 namespace App\Infrastructure\Front\Service;
 
 
-use App\Domain\Model\Contact\Contact;
 use App\Domain\Model\Contact\ContactEvent;
+use App\Domain\Model\Contact\ContactEvents;
 use App\Domain\Model\Message\Message;
 use App\Infrastructure\Service\Mailer;
 use Symfony\Component\DependencyInjection\ContainerInterface;
@@ -31,7 +31,7 @@ final class ContactSubscriber implements EventSubscriberInterface
      * @param Mailer $mailer
      * @param ContainerInterface $container
      */
-    public function __construct(Mailer $mailer,ContainerInterface $container)
+    public function __construct(Mailer $mailer, ContainerInterface $container)
     {
         $this->mailer = $mailer;
         $this->to = $container->getParameter('contact_mail');
@@ -45,7 +45,7 @@ final class ContactSubscriber implements EventSubscriberInterface
     public static function getSubscribedEvents(): array
     {
         return [
-            Contact::CREATED => ['sendMail'],
+            ContactEvents::CREATED => ['sendMail'],
         ];
     }
 

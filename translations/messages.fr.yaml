@@ -12,13 +12,6 @@ base:
   dashbord: Tableau de board
   towns: Villes
   title: Cov-19.tn
-
-town:
-  listTownAction:
-    towns: Villes
-    new: Créer une nouvelle ville
-  createTownAction:
-    newTown: Nouvelle ville
 home:
   menu:
     home: Accueil

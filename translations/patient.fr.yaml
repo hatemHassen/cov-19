@@ -1,0 +1,24 @@
+patient:
+  createPatientAction:
+    newPatient: Remplir le formulaire de consultation et de référence pour un patient suspecté de Covid 19
+    form:
+      email: Email
+      lastName: Nom
+      firstName: Prénom
+      gender: Genre
+      age: Age
+      city: Ville
+      zipCode: code postal
+      street: Adresse
+      phone: Télophone fix
+      mobile: Téléphone mobile
+      antecedent: Antécédant
+      treatment: Traitement en cours
+      symptoms: Symptômes
+      symptomsStartDate: Date de début des symptômes
+      doctorVisited: visiter un medecin ?
+      emergencyVisited: visiter l'urgence ?
+      temperature: Temperature
+      breathingFrequency: Fréquence de respiration
+      oxygenSaturation: Saturation en oxygène
+      heartBeat: Fréquence cardiaque

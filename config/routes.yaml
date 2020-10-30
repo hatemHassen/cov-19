@@ -20,3 +20,7 @@ dashboard:
 home:
   path: '/'
   defaults: { _controller: 'App\Infrastructure\Front\Action\Home\HomeAction' }
+
+patient_create:
+  path: '/patient/create'
+  defaults: { _controller: 'App\Infrastructure\Front\Action\Patient\CreatePatientAction' }
