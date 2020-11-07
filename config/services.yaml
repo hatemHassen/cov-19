@@ -21,6 +21,7 @@ services:
     App\Domain\Model\Town\TownRepositoryInterface:  '@App\Infrastructure\Repository\Doctrine\TownRepository'
     App\Domain\Model\Contact\ContactRepositoryInterface:  '@App\Infrastructure\Repository\Doctrine\ContactRepository'
     App\Domain\Model\Patient\PatientRepositoryInterface:  '@App\Infrastructure\Repository\Doctrine\PatientRepository'
+    App\Domain\Model\DayNumbers\DayNumbersRepositoryInterface:  '@App\Infrastructure\Repository\Doctrine\DayNumbersRepository'
 
 
 

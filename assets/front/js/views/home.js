@@ -6,12 +6,12 @@ let firstChart = new Chart(firstChartCtxL, {
 
     // The data for our dataset
     data: {
-        labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+        labels: JSON.parse(document.getElementById("firstChart").dataset.label),
         datasets: [{
-            label: 'My First dataset',
-            backgroundColor: 'rgb(255, 99, 132)',
-            borderColor: 'rgb(255, 99, 132)',
-            data: [0, 10, 5, 2, 20, 30, 45]
+            label: 'Nb. total de cas',
+            backgroundColor: 'rgb(51, 102, 255)',
+            borderColor: 'rgb(51, 102, 204)',
+            data: JSON.parse(document.getElementById("firstChart").dataset.data)
         }]
     },
 
@@ -25,12 +25,12 @@ let secondChart = new Chart(secondChartCtxL, {
 
     // The data for our dataset
     data: {
-        labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+        labels: JSON.parse(document.getElementById("secondChart").dataset.label),
         datasets: [{
-            label: 'My First dataset',
-            backgroundColor: 'rgb(255, 99, 132)',
-            borderColor: 'rgb(255, 99, 132)',
-            data: [0, 10, 5, 2, 20, 30, 45]
+            label: 'Nb. de décès',
+            backgroundColor: 'rgb(255, 51, 51)',
+            borderColor: 'rgb(221, 51, 51)',
+            data: JSON.parse(document.getElementById("secondChart").dataset.data)
         }]
     },
 
@@ -44,12 +44,12 @@ let thirdChart = new Chart(thirdChartCtx, {
 
     // The data for our dataset
     data: {
-        labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+        labels: JSON.parse(document.getElementById("thirdChart").dataset.label),
         datasets: [{
-            label: 'My First dataset',
-            backgroundColor: 'rgb(255, 99, 132)',
-            borderColor: 'rgb(255, 99, 132)',
-            data: [0, 10, 5, 2, 20, 30, 45]
+            label: 'Nb. de cas journaliers',
+            backgroundColor: 'rgb(255, 153, 51)',
+            borderColor: 'rgb(221, 153, 51)',
+            data: JSON.parse(document.getElementById("thirdChart").dataset.data)
         }]
     },
 

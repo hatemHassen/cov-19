@@ -3,9 +3,7 @@
 
 namespace App\Application\Query;
 
-use App\Domain\Model\Patient\Patient;
 use App\Domain\Model\Patient\PatientEvent;
-use App\Domain\Model\Patient\PatientEvent as PatientEventAlias;
 use App\Domain\Model\Patient\PatientEvents;
 use App\Domain\Model\Patient\PatientRepositoryInterface;
 use Doctrine\Common\Collections\ArrayCollection;
@@ -26,14 +24,15 @@ class ListPatientQuery implements Query
     }
 
     /**
-     * @return ArrayCollection|Patient[]
+     * @param array $args
+     * @return ArrayCollection
      */
-    public function execute(): ArrayCollection
+    public function execute(array $args = []): ArrayCollection
     {
         $list = $this->patientRepository->getList();
-        foreach ($list as $configuration) {
+        foreach ($list as $patient) {
             $this->eventDispatcher->dispatch(
-                new PatientEventAlias($configuration),
+                new PatientEvent($patient),
                 PatientEvents::LISTED
             );
         }

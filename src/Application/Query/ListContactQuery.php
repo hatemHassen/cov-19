@@ -27,14 +27,15 @@ class ListContactQuery implements Query
     }
 
     /**
-     * @return ArrayCollection|Contact[]
+     * @param array $args
+     * @return ArrayCollection
      */
-    public function execute(): ArrayCollection
+    public function execute(array $args = []): ArrayCollection
     {
         $list = $this->contactRepository->getList();
-        foreach ($list as $configuration) {
+        foreach ($list as $contact) {
             $this->eventDispatcher->dispatch(
-                new ContactEventAlias($configuration),
+                new ContactEventAlias($contact),
                 ContactEvents::LISTED
             );
         }

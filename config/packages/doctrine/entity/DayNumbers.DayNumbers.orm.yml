@@ -13,7 +13,7 @@ App\Domain\Model\DayNumbers\DayNumbers:
       type: integer
     newDeaths:
       type: integer
-    newHealedCases:
+    newHealed:
       type: integer
     date:
       type: date

@@ -21,6 +21,7 @@ class DayNumbersRepository extends ServiceEntityRepository implements DayNumbers
     {
         parent::__construct($registry, DayNumbers::class);
     }
+
     /**
      * @param int $id
      * @return DayNumbers
@@ -60,7 +61,7 @@ class DayNumbersRepository extends ServiceEntityRepository implements DayNumbers
      * @param string $direction
      * @return ArrayCollection
      */
-    public function getList(int $limit = 0, int $offset = 0, string $orderBy = 'id',string $direction = 'DESC'): ArrayCollection
+    public function getList(int $limit = 0, int $offset = 0, string $orderBy = 'id', string $direction = 'DESC'): ArrayCollection
     {
         $q = $this->createQueryBuilder('q');
 
@@ -72,7 +73,7 @@ class DayNumbersRepository extends ServiceEntityRepository implements DayNumbers
             $q->setMaxResults($limit);
         }
 
-        $q->orderBy('q.'.$orderBy,$direction);
+        $q->orderBy('q.' . $orderBy, $direction);
 
         $result = $q->getQuery()->getResult();
         $collection = new ArrayCollection();
@@ -81,5 +82,59 @@ class DayNumbersRepository extends ServiceEntityRepository implements DayNumbers
         }
 
         return $collection;
+    }
+
+    public function sumField($field): int
+    {
+        return (int)$this->createQueryBuilder('d')
+            ->select('SUM(d.' . $field . ') as sumField')
+            ->getQuery()
+            ->getOneOrNullResult(Query::HYDRATE_SINGLE_SCALAR);
+    }
+
+    public function chartData($type): array
+    {
+        switch ($type) {
+            case 'totalNew':
+                return $this->chartDataTotalNew();
+            case 'totalDeath':
+                return $this->chartDataTotalDeath();
+            case 'dailyNew' :
+                return $this->chartDataDailyNew();
+            case 'days':
+                return $this->chartDataDays();
+        }
+    }
+
+    protected function chartDataTotalNew(): array
+    {
+        $sql = 'select SUM(t2.new_cases) as totalNewDCases from day_numbers t1 inner join day_numbers t2 on t1.date >= t2.date group by t1.id, t1.date order by t1.date';
+        return $this->fetchNativeQuery($sql);
+    }
+
+    protected function chartDataTotalDeath(): array
+    {
+        $sql = 'select SUM(t2.new_deaths) as totalNewDeath from day_numbers t1 inner join day_numbers t2 on t1.date >= t2.date group by t1.id, t1.date order by t1.date';
+        return $this->fetchNativeQuery($sql);
+    }
+
+    protected function chartDataDailyNew(): array
+    {
+        $sql = 'select t1.new_cases from day_numbers t1 group by t1.date, t1.new_cases order by t1.date';
+        return $this->fetchNativeQuery($sql);
+    }
+
+    protected function chartDataDays(): array
+    {
+        $sql = 'select t1.date from day_numbers t1 group by t1.date order by t1.date';
+        return $this->fetchNativeQuery($sql);
+    }
+
+    protected function fetchNativeQuery(string $sql)
+    {
+        $connection = $this->getEntityManager()->getConnection();
+        $preparedQuery = $connection->prepare($sql);
+        $preparedQuery->execute();
+        return array_column($preparedQuery->fetchAllNumeric(),'0');
     }
 }

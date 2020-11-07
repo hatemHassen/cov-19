@@ -18,15 +18,64 @@ body{
       margin-left: 10px;
     }
   }
-   .footer-area{
-     .footer-widget{
-       ul{
-         li{
-           display: inline;
-           padding: 0 15px;
-         }
-       }
-     }
+  #home{
+    background: url('../../../public_html/images/moknine.jpg') ;
+    width: auto;
+    background-size: 100%;
+    background-position: 0;
+  }
+  .feature-area {
+    .single-feature{
+      .header{
+        display: flex;
+        flex-direction: row;
+      .feature-content{
+        margin-left: 15px;
+      }
+      }
+      .content{
+        font-size: 28px;
+        line-height: 24px;
+        text-align: center;
+        font-weight: bold;
+      }
+
+    }
   }
 }
+@media only screen and (min-width: 720px)  {
+  .footer-area{
+    .footer-widget{
+      ul{
+        li{
+          &.footer-link{
+            display: inline-block;
+            padding: 0 15px;
+            margin-top: 40px;
+          }
+        }
+      }
+    }
+  }
+}
+@media all and (max-width: 720px)  {
+  #home{
+    background-repeat: no-repeat !important;
+    padding-top: 90px;
+    padding-bottom: 0;
+    h2{
+      font-size: 24px;
+      line-height: 24px;
+    }
+    .hero-content {
+      padding-bottom: 0;
+    }
+  }
+  .pt-120{
+    padding-top: 30px;
+  }
+  .pt-130 {
+    padding-top: 30px;
+  }
 
+}

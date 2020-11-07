@@ -4,7 +4,7 @@ dayNumbers:
     form:
       success: Les chiffres sont sauvgardés avec succès
       date: Date
-      newCases: Nb. total de nouveaux cas
+      newCases: Nb. de nouveaux cas
       newDeaths: Nb. de nouveaux décès
       newHealedCases: Nb. des nouveaux cas rétablis
       town: Ville

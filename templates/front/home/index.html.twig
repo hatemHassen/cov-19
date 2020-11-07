@@ -3,7 +3,7 @@
 {% block content %}
     <div class="home">
         <!--====== HERO PART START ======-->
-        <section id="home" class="hero-area bg_cover" style="background: url('{{ asset('images/moknine.jpg') }}') ;width: auto; background-size: 100%; background-position: 0;">
+        <section id="home" class="hero-area bg_cover" >
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-xl-6 col-lg-6">
@@ -12,14 +12,6 @@
                             <p class="wow fadeInUp" data-wow-delay=".4s">{{'home.header.description'|trans}}</p>
                         </div>
                     </div>
-                    {#                <div class="col-xl-6 col-lg-6">#}
-                    {#                    <div class="hero-img">#}
-                    {#                        <img src="{{ asset('images/moknine_la_nuit.jpg') }}" width="150" alt="" class="wow fadeInRight" data-wow-delay=".2s">#}
-                    {#                        <img src="{{ asset('images/rondpoint.jpg') }}" width="150" alt="" class="img-screen screen-1 wow fadeInUp" data-wow-delay=".25s">#}
-                    {#                        <img src="{{ asset('images/5septembre.jpg') }}" width="150" alt="" class="img-screen screen-2 wow fadeInUp" data-wow-delay=".3s">#}
-                    {#                        <img src="{{ asset('images/entre.jpg') }}" width="150" alt="" class="img-screen screen-3 wow fadeInUp" data-wow-delay=".35s">#}
-                    {#                    </div>#}
-                    {#                </div>#}
                 </div>
             </div>
         </section>
@@ -31,46 +23,54 @@
                 <div class="row">
                     <div class="col-xl-3 col-lg-3 col-md-6">
                         <div class="single-feature item-1 wow fadeInUp" data-wow-delay=".2s">
-                            <div class="feature-icon icon-style gradient-1">
-                                <i class="lni lni-protection"></i>
+                            <div class="header">
+                                <div class="feature-icon icon-style gradient-1">
+                                    <i class="lni lni-protection"></i>
+                                </div>
+                                <div class="feature-content">
+                                    <h4>{{ 'home.sections.keyNumbers.totalCases'|trans }}</h4>
+                                </div>
                             </div>
-                            <div class="feature-content">
-                                <h4>{{'home.sections.keyNumbers.totalCases'|trans}}</h4>
-                                <p>5</p>
-                            </div>
+                            <div class="content">{{totalNew}}</div>
                         </div>
                     </div>
                     <div class="col-xl-3 col-lg-3 col-md-6">
                         <div class="single-feature item-2 wow fadeInUp" data-wow-delay=".4s">
-                            <div class="feature-icon icon-style gradient-2">
-                                <i class="lni lni-notepad"></i>
+                            <div class="header">
+                                <div class="feature-icon icon-style gradient-2">
+                                    <i class="lni lni-notepad"></i>
+                                </div>
+                                <div class="feature-content">
+                                    <h4>{{'home.sections.keyNumbers.actifCases'|trans}}</h4>
+                                </div>
                             </div>
-                            <div class="feature-content">
-                                <h4>{{'home.sections.keyNumbers.actifCases'|trans}}</h4>
-                                <p>2</p>
-                            </div>
+                            <div class="content">{{totalActive}}</div>
                         </div>
                     </div>
                     <div class="col-xl-3 col-lg-3 col-md-6">
                         <div class="single-feature item-3 wow fadeInUp" data-wow-delay=".6s">
-                            <div class="feature-icon icon-style gradient-3">
-                                <i class="lni lni-dashboard"></i>
+                            <div class="header">
+                                <div class="feature-icon icon-style gradient-3">
+                                    <i class="lni lni-dashboard"></i>
+                                </div>
+                                <div class="feature-content">
+                                    <h4>{{ 'home.sections.keyNumbers.healedCases'|trans }}</h4>
+                                </div>
                             </div>
-                            <div class="feature-content">
-                                <h4>{{'home.sections.keyNumbers.healedCases'|trans}}</h4>
-                                <p>10</p>
-                            </div>
+                            <div class="content">{{totalHealed}}</div>
                         </div>
                     </div>
                     <div class="col-xl-3 col-lg-3 col-md-6">
                         <div class="single-feature item-4 wow fadeInUp" data-wow-delay=".8s">
-                            <div class="feature-icon icon-style gradient-4">
-                                <i class="lni lni-laptop-phone"></i>
+                            <div class="header">
+                                <div class="feature-icon icon-style gradient-4">
+                                    <i class="lni lni-laptop-phone"></i>
+                                </div>
+                                <div class="feature-content">
+                                    <h4>{{ 'home.sections.keyNumbers.deathCases'|trans }}</h4>
+                                </div>
                             </div>
-                            <div class="feature-content">
-                                <h4>{{'home.sections.keyNumbers.deathCases'|trans}}</h4>
-                                <p>0</p>
-                            </div>
+                            <div class="content">{{totalDeath}}</div>
                         </div>
                     </div>
                 </div>
@@ -105,17 +105,17 @@
                             <div class="row">
                                 <div class="col-xl-4 col-lg-4 col-md-6">
                                     <div class="single-chart text-center wow fadeInUp" data-wow-delay=".2s">
-                                        <canvas id="firstChart" style="max-width: 500px;"></canvas>
+                                        <canvas id="firstChart" style="max-width: 500px;" data-label="{{ labels }}" data-data="{{ totalNewChatData }}"></canvas>
                                     </div>
                                 </div>
                                 <div class="col-xl-4 col-lg-4 col-md-6">
                                     <div class="single-chart text-center active wow fadeInUp" data-wow-delay=".4s">
-                                        <canvas id="secondChart" style="max-width: 500px;"></canvas>
+                                        <canvas id="secondChart" style="max-width: 500px;" data-label="{{ labels }}" data-data="{{ totalDeathChatData }}"></canvas>
                                     </div>
                                 </div>
                                 <div class="col-xl-4 col-lg-4 col-md-6">
                                     <div class="single-chart text-center wow fadeInUp" data-wow-delay=".2s">
-                                        <canvas id="thirdChart" style="max-width: 500px;"></canvas>
+                                        <canvas id="thirdChart" style="max-width: 500px;" data-label="{{ labels }}" data-data="{{ dailyNewChatData }}"></canvas>
                                     </div>
                                 </div>
                             </div>

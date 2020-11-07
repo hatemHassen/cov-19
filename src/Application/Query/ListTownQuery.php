@@ -27,9 +27,10 @@ class ListTownQuery implements Query
     }
 
     /**
-     * @return ArrayCollection|Town[]
+     * @param array $args
+     * @return ArrayCollection
      */
-    public function execute(): ArrayCollection
+    public function execute(array $args = []): ArrayCollection
     {
         $list = $this->townRepository->getList();
         foreach ($list as $configuration) {

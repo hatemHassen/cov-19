@@ -24,7 +24,7 @@ class DayNumbers
     /**
      * @var int
      */
-    protected $newHealedCases;
+    protected $newHealed;
 
     /**
      * @var Town
@@ -41,16 +41,16 @@ class DayNumbers
      * @param string $id
      * @param int $newCases
      * @param int $newDeaths
-     * @param int $newHealedCases
+     * @param int $newHealed
      * @param Town $town
      * @param \DateTime $date
      */
-    public function __construct(string $id, int $newCases, int $newDeaths, int $newHealedCases, Town $town, \DateTime $date)
+    public function __construct(string $id, int $newCases, int $newDeaths, int $newHealed, Town $town, \DateTime $date)
     {
         $this->id = $id;
         $this->newCases = $newCases;
         $this->newDeaths = $newDeaths;
-        $this->newHealedCases = $newHealedCases;
+        $this->newHealed = $newHealed;
         $this->town = $town;
         $this->date = $date;
     }
@@ -115,16 +115,16 @@ class DayNumbers
      */
     public function getNewHealedCases(): int
     {
-        return $this->newHealedCases;
+        return $this->newHealed;
     }
 
     /**
-     * @param int $newHealedCases
+     * @param int $newHealed
      * @return DayNumbers
      */
-    public function setNewHealedCases(int $newHealedCases): DayNumbers
+    public function setNewHealedCases(int $newHealed): DayNumbers
     {
-        $this->newHealedCases = $newHealedCases;
+        $this->newHealed = $newHealed;
         return $this;
     }
 

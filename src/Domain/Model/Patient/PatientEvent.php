@@ -8,19 +8,19 @@ use Symfony\Contracts\EventDispatcher\Event;
 
 class PatientEvent extends Event
 {
-    private $contact;
+    private $patient;
 
 
-    public function __construct(Patient $contact)
+    public function __construct(Patient $patient)
     {
-        $this->contact = $contact;
+        $this->patient = $patient;
     }
 
     /**
      * @return Patient
      */
-    public function getContact(): Patient
+    public function getPatient(): Patient
     {
-        return $this->contact;
+        return $this->patient;
     }
 }

@@ -2239,8 +2239,7 @@ textarea:focus {
 }
 
 .footer-area {
-  /*background-image: url("../../../public_html/images/footer-bg.png");*/
-  padding-top: 365px;
+  padding-top: 100px;
 }
 
 .footer-area .footer-widget {

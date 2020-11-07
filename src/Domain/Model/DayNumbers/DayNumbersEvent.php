@@ -19,7 +19,7 @@ class DayNumbersEvent extends Event
     /**
      * @return DayNumbers
      */
-    public function getTown(): Town
+    public function getDayNumbers(): DayNumbers
     {
         return $this->dayNumbers;
     }
