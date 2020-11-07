@@ -4,9 +4,9 @@
 namespace App\Infrastructure\Repository\Doctrine;
 
 
-use App\Domain\Model\Patient\Patient;
-use App\Domain\Model\Patient\PatientException;
-use App\Domain\Model\Patient\PatientRepositoryInterface;
+use App\Domain\Model\DayNumbers\DayNumbers;
+use App\Domain\Model\DayNumbers\DayNumbersException;
+use App\Domain\Model\DayNumbers\DayNumbersRepositoryInterface;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\NonUniqueResultException;
@@ -15,19 +15,19 @@ use Doctrine\ORM\ORMException;
 use Doctrine\ORM\Query;
 use Doctrine\Persistence\ManagerRegistry;
 
-class PatientRepository extends ServiceEntityRepository implements PatientRepositoryInterface
+class DayNumbersRepository extends ServiceEntityRepository implements DayNumbersRepositoryInterface
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, Patient::class);
+        parent::__construct($registry, DayNumbers::class);
     }
     /**
      * @param int $id
-     * @return Patient
-     * @throws PatientException
+     * @return DayNumbers
+     * @throws DayNumbersException
      * @throws NonUniqueResultException
      */
-    public function getById(int $id): Patient
+    public function getById(int $id): DayNumbers
     {
         $result = $this->createQueryBuilder('q')
             ->where(['id' => $id])
@@ -36,29 +36,31 @@ class PatientRepository extends ServiceEntityRepository implements PatientReposi
             ->getOneOrNullResult();
 
         if (null === $result) {
-            throw new PatientException("Patient doesn't exist.");
+            throw new DayNumbersException("NumberDays doesn't exist.");
         }
 
-        return Patient::fromArray($result);
+        return DayNumbers::fromArray($result);
     }
 
     /**
-     * @param Patient $patient
+     * @param DayNumbers $DayNumbers
      * @throws ORMException
      * @throws OptimisticLockException
      */
-    public function create(Patient $patient): void
+    public function create(DayNumbers $DayNumbers): void
     {
-        $this->_em->persist($patient);
+        $this->_em->persist($DayNumbers);
         $this->_em->flush();
     }
 
     /**
      * @param int $limit
      * @param int $offset
-     * @return ArrayCollection|Patient[]
+     * @param string $orderBy
+     * @param string $direction
+     * @return ArrayCollection
      */
-    public function getList(int $limit = 0, int $offset = 0): ArrayCollection
+    public function getList(int $limit = 0, int $offset = 0, string $orderBy = 'id',string $direction = 'DESC'): ArrayCollection
     {
         $q = $this->createQueryBuilder('q');
 
@@ -69,6 +71,8 @@ class PatientRepository extends ServiceEntityRepository implements PatientReposi
         if ($limit > 0) {
             $q->setMaxResults($limit);
         }
+
+        $q->orderBy('q.'.$orderBy,$direction);
 
         $result = $q->getQuery()->getResult();
         $collection = new ArrayCollection();

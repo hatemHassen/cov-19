@@ -1,8 +1,8 @@
 {% extends 'back/base.html.twig' %}
-
+{% trans_default_domain 'town' %}
 {% block body %}
     <div class="card shadow mb-4">
-        {% include 'flashMessage.html.twig' %}
+        {% include 'back/flashMessage.html.twig' %}
         <div class="card-header py-3">
             <h6 class="m-0 font-weight-bold text-primary">{{ 'town.listTownAction.towns'|trans }}</h6>
         </div>

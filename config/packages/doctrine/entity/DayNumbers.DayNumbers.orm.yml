@@ -1,0 +1,23 @@
+
+App\Domain\Model\DayNumbers\DayNumbers:
+  type: entity
+  table: day_numbers
+  repositoryClass: App\Infrastructure\Repository\Doctrine\DayNumbersRepository
+  id:
+    id:
+      type: string
+      generator:
+        strategy: UUID
+  fields:
+    newCases:
+      type: integer
+    newDeaths:
+      type: integer
+    newHealedCases:
+      type: integer
+    date:
+      type: date
+  manyToOne:
+    town:
+      targetEntity: App\Domain\Model\Town\Town
+      inversedBy: dayNumbers

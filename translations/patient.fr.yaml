@@ -2,23 +2,74 @@ patient:
   createPatientAction:
     newPatient: Remplir le formulaire de consultation et de référence pour un patient suspecté de Covid 19
     form:
+      success: Formulaire envoyé avec succès
       email: Email
       lastName: Nom
       firstName: Prénom
-      gender: Genre
+      gender:
+        label: Genre
+        men: Homme
+        women: Femme
       age: Age
-      city: Ville
-      zipCode: code postal
+      town: Ville
+      zipCode: Code postal
       street: Adresse
       phone: Télophone fix
       mobile: Téléphone mobile
-      antecedent: Antécédant
-      treatment: Traitement en cours
-      symptoms: Symptômes
+      antecedent:
+        label: Antécédant
+        tobacco: TABAC
+        diabetes: Diabète
+        cardiovascular: Maladie Cardiovasculaires
+        chronicLung: Maladie Pulmonaire Chronique
+        asthma: Asthme
+        copd: BPCO
+        chronicNephropathy: Néphropathie Chronique
+        grafted: Patient gréffé
+        cirrhoses: Cirrhoses
+        hemopathy: Hémopathie
+        otherDiseases: Autres maladies
+        nothing: Rien
+      treatment:
+        label: Traitement en cours
+        corticosteroid: Corticothérapie par voie générale
+        Biotherapy: Biothérapie
+        Chemotherapy: Chimiothérapie
+        other: Autres
+      symptoms:
+        label: Symptômes
+        fever: Fièvre
+        cough: Toux
+        chest: Douleur thoracique
+        muscle: Douleurs / courbatures musculaires
+        lossStrength: Perte de force
+        conjunctivitis: Conjonctivite (oculaire)
+        neurological: Signes neurologiques
+        digestive: Signes du système digestif (flux gastro-intestinal, reflux)
+        swallowing: Douleur à la déglutition
+        headache: Maux de tête
+        lossSmell: Perte d'odeur
+        other: Autres symptômes
       symptomsStartDate: Date de début des symptômes
       doctorVisited: visiter un medecin ?
       emergencyVisited: visiter l'urgence ?
       temperature: Temperature
       breathingFrequency: Fréquence de respiration
       oxygenSaturation: Saturation en oxygène
-      heartBeat: Fréquence cardiaque
+      heartBeat: Un rythme cardiaque rapide?
+      choice:
+        yes: Oui
+        no: Non
+  listPatientAction:
+    patients: Patients
+    new: Créer un nouveau patient
+    id: Id
+    email: Email
+    lastName: Nom
+    firstName: Prénom
+    age: Age
+    street: Rue
+    town: Ville
+    zipCode: Code postal
+    mobile: Téléphone mobile
+

@@ -22,9 +22,6 @@ App\Domain\Model\Patient\Patient:
       type: boolean
     age:
       type: integer
-    city:
-      type: string
-      length: 255
     zipCode:
       type: string
       length: 255
@@ -34,6 +31,7 @@ App\Domain\Model\Patient\Patient:
     phone:
       type: string
       length: 255
+      nullable: true
     mobile:
       type: string
       length: 255
@@ -47,6 +45,8 @@ App\Domain\Model\Patient\Patient:
       type: date
     emergencyVisited:
       type: boolean
+    doctorVisited:
+      type: boolean
     temperature:
       type: float
     breathingFrequency:
@@ -55,4 +55,8 @@ App\Domain\Model\Patient\Patient:
       type: float
     heartBeat:
       type: float
+  manyToOne:
+    town:
+      targetEntity: App\Domain\Model\Town\Town
+      inversedBy: patients
 

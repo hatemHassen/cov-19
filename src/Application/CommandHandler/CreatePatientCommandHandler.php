@@ -7,6 +7,7 @@ namespace App\Application\CommandHandler;
 use App\Application\Command\CreatePatientCommand;
 use App\Domain\Model\Patient\Patient;
 use App\Domain\Model\Patient\PatientEvent;
+use App\Domain\Model\Patient\PatientEvents;
 use App\Domain\Model\Patient\PatientRepositoryInterface;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\Messenger\Handler\MessageHandlerInterface;
@@ -18,12 +19,12 @@ class CreatePatientCommandHandler implements MessageHandlerInterface
 
     /**
      * CreatePatientCommandHandler constructor.
-     * @param PatientRepositoryInterface $townRepository
+     * @param PatientRepositoryInterface $patientRepository
      * @param EventDispatcherInterface $eventDispatcher
      */
-    public function __construct(PatientRepositoryInterface $townRepository, EventDispatcherInterface $eventDispatcher)
+    public function __construct(PatientRepositoryInterface $patientRepository, EventDispatcherInterface $eventDispatcher)
     {
-        $this->townRepository = $townRepository;
+        $this->patientRepository = $patientRepository;
         $this->eventDispatcher = $eventDispatcher;
     }
 
@@ -36,11 +37,30 @@ class CreatePatientCommandHandler implements MessageHandlerInterface
 
         $town = new Patient(
             uniqid('', true),
-            $command->getName()
+            $command->getEmail(),
+            $command->getLastName(),
+            $command->getFirstName(),
+            $command->getGender(),
+            $command->getAge(),
+            $command->getTown(),
+            $command->getZipCode(),
+            $command->getStreet(),
+            $command->getMobile(),
+            $command->getPhone(),
+            $command->getAntecedent(),
+            $command->getTreatment(),
+            $command->getSymptoms(),
+            $command->getSymptomsStartDate(),
+            $command->isDoctorVisited(),
+            $command->isEmergencyVisited(),
+            $command->getTemperature(),
+            $command->getBreathingFrequency(),
+            $command->getOxygenSaturation(),
+            $command->getHeartBeat()
         );
 
-        $this->townRepository->create($town);
-        $this->eventDispatcher->dispatch(new PatientEvent($town),Patient::CREATED);
+        $this->patientRepository->create($town);
+        $this->eventDispatcher->dispatch(new PatientEvent($town),PatientEvents::CREATED);
 
     }
 

@@ -1,7 +1,32 @@
-.home {
-  .hero-content {
-    h2, p {
-      color: white;
+body{
+  background-color: #f9f9f9;
+  .home {
+    .hero-content {
+      h2, p {
+        color: white;
+      }
     }
   }
+  .create-patient{
+    background-color: white;
+    border-radius: 10px ;
+    padding: 20px;
+    input[type="radio"],input[type="checkbox"]{
+      display: inline-block;
+      width: auto;
+      margin-right: 10px;
+      margin-left: 10px;
+    }
+  }
+   .footer-area{
+     .footer-widget{
+       ul{
+         li{
+           display: inline;
+           padding: 0 15px;
+         }
+       }
+     }
+  }
 }
+

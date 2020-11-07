@@ -12,3 +12,12 @@ App\Domain\Model\Town\Town:
     name:
       type: string
       length: 255
+  oneToMany:
+    patients:
+      targetEntity: App\Domain\Model\Patient\Patient
+      orphanRemoval: true
+      mappedBy: town
+    dayNumbers:
+      targetEntity: App\Domain\Model\DayNumbers\DayNumbers
+      orphanRemoval: true
+      mappedBy: town

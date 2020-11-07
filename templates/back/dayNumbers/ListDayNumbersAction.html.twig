@@ -1,0 +1,42 @@
+{% extends 'back/base.html.twig' %}
+{% trans_default_domain 'dayNumbers' %}
+{% block body %}
+    <div class="card shadow mb-4">
+        {% include 'back/flashMessage.html.twig' %}
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">{{ 'dayNumbers.listDayNumbersAction.dayNumbers'|trans }}</h6>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                    <tr>
+                        <th>{{'dayNumbers.listDayNumbersAction.id'|trans}}</th>
+                        <th>{{'dayNumbers.listDayNumbersAction.date'|trans}}</th>
+                        <th>{{'dayNumbers.listDayNumbersAction.newCases'|trans}}</th>
+                        <th>{{'dayNumbers.listDayNumbersAction.newDeaths'|trans}}</th>
+                        <th>{{'dayNumbers.listDayNumbersAction.newHealedCases'|trans}}</th>
+                        <th>{{'dayNumbers.listDayNumbersAction.town'|trans}}</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for dayNumbers in dayNumbers %}
+                        <tr>
+                            <td>{{ dayNumbers.id }}</td>
+                            <td>{{ dayNumbers.date | date('Y-m-d') }}</td>
+                            <td>{{ dayNumbers.newCases }}</td>
+                            <td>{{ dayNumbers.newDeaths }}</td>
+                            <td>{{ dayNumbers.newHealedCases }}</td>
+                            <td>{{ dayNumbers.town.name }}</td>
+
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+                <div class="col-lg-8 col-lg-offset-1 well">
+                    <a href="{{ path('admin_day_numbers_create') }}" class="btn btn-light">{{'dayNumbers.listDayNumbersAction.new'|trans}}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

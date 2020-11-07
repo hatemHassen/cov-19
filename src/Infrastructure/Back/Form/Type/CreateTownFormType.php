@@ -18,7 +18,7 @@ class CreateTownFormType extends AbstractType implements DataMapperInterface
     {
         $builder
             ->add('name', TextType::class)
-            ->add('create', SubmitType::class,['attr'=>['class'=>'btn btn-light'],'label'=>'common.create'])
+            ->add('create', SubmitType::class,['attr'=>['class'=>'btn btn-light'],'label'=>'common.create','translation_domain' => 'messages'])
             ->setDataMapper($this);
     }
 

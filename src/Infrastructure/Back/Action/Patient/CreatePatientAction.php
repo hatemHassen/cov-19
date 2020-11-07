@@ -1,10 +1,10 @@
 <?php
 
 
-namespace App\Infrastructure\Front\Action\Patient;
+namespace App\Infrastructure\Back\Action\Patient;
 
 
-use App\Infrastructure\Front\Form\Type\CreatePatientFormType;
+use App\Infrastructure\Back\Form\Type\CreatePatientFormType;
 use App\Infrastructure\Utils\Action\Action;
 use Psr\Container\ContainerInterface;
 use Symfony\Component\Form\FormFactoryInterface;
@@ -61,7 +61,7 @@ class CreatePatientAction implements Action
             }
         }
 
-        return new Response($this->container->get('twig')->render('front/patient/CreatePatientAction.html.twig', [
+        return new Response($this->container->get('twig')->render('back/patient/CreatePatientAction.html.twig', [
             'form' => $form->createView()
         ]));
     }
@@ -72,7 +72,8 @@ class CreatePatientAction implements Action
     private function onSuccess(): RedirectResponse
     {
         $this->session->getFlashBag()->add('success', $this->translator->trans('patient.createPatientAction.form.success',[],'patient'));
-        return new RedirectResponse($this->router->generate('patient_create'));
+
+        return new RedirectResponse($this->router->generate('admin_patient_list'));
     }
 
 }

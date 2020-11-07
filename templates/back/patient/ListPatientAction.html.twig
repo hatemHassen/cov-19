@@ -1,0 +1,47 @@
+{% extends 'back/base.html.twig' %}
+{% trans_default_domain 'patient' %}
+{% block body %}
+    <div class="card shadow mb-4">
+        {% include 'back/flashMessage.html.twig' %}
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">{{ 'patient.listPatientAction.patients'|trans }}</h6>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                    <tr>
+                        <th>{{'patient.listPatientAction.id'|trans}}</th>
+                        <th>{{'patient.listPatientAction.email'|trans}}</th>
+                        <th>{{'patient.listPatientAction.lastName'|trans}}</th>
+                        <th>{{'patient.listPatientAction.firstName'|trans}}</th>
+                        <th>{{'patient.listPatientAction.age'|trans}}</th>
+                        <th>{{'patient.listPatientAction.street'|trans}}</th>
+                        <th>{{'patient.listPatientAction.town'|trans}}</th>
+                        <th>{{'patient.listPatientAction.zipCode'|trans}}</th>
+                        <th>{{'patient.listPatientAction.mobile'|trans}}</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for patient in patients %}
+                        <tr>
+                            <td>{{ patient.id }}</td>
+                            <td>{{ patient.email }}</td>
+                            <td>{{ patient.lastName }}</td>
+                            <td>{{ patient.firstName }}</td>
+                            <td>{{ patient.age }}</td>
+                            <td>{{ patient.street }}</td>
+                            <td>{{ patient.town.name }}</td>
+                            <td>{{ patient.zipCode }}</td>
+                            <td>{{ patient.mobile }}</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+                <div class="col-lg-8 col-lg-offset-1 well">
+                    <a href="{{ path('admin_patient_create') }}" class="btn btn-light">{{'patient.listPatientAction.new'|trans}}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -2,7 +2,7 @@
 
 
 namespace App\Domain\Model\Patient;
-
+use App\Domain\Model\Town\Town;
 
 class Patient
 {
@@ -32,9 +32,9 @@ class Patient
      */
     protected $age;
     /**
-     * @var string
+     * @var Town
      */
-    protected $city;
+    protected $town;
     /**
      * @var string
      */
@@ -94,35 +94,37 @@ class Patient
 
     /**
      * Patient constructor.
+     * @param string|null $id
      * @param string $email
      * @param string $lastName
      * @param $firstName
      * @param int $gender
      * @param int $age
-     * @param string $city
+     * @param Town $town
      * @param string $zipCode
      * @param string $street
-     * @param string $phone
      * @param string $mobile
+     * @param string|null $phone
      * @param array $antecedent
      * @param array $treatment
      * @param array $symptoms
-     * @param \DateTime $symptomsStartDate
+     * @param \DateTime|null $symptomsStartDate
      * @param bool $doctorVisited
      * @param bool $emergencyVisited
-     * @param float $temperature
-     * @param float $breathingFrequency
-     * @param float $oxygenSaturation
-     * @param float $heartBeat
+     * @param float|null $temperature
+     * @param float|null $breathingFrequency
+     * @param float|null $oxygenSaturation
+     * @param float|null $heartBeat
      */
-    public function __construct(string $email, string $lastName, $firstName, int $gender, int $age, string $city, string $zipCode, string $street, string $phone, string $mobile, array $antecedent, array $treatment, array $symptoms, \DateTime $symptomsStartDate, bool $doctorVisited, bool $emergencyVisited, float $temperature, float $breathingFrequency, float $oxygenSaturation, float $heartBeat)
+    public function __construct(string $id,string $email, string $lastName, $firstName, int $gender, int $age, Town $town, string $zipCode, string $street, string $mobile , string $phone = null, array $antecedent = [], array $treatment = [], array $symptoms = [], \DateTime $symptomsStartDate = null , bool $doctorVisited = false, bool $emergencyVisited = false, float $temperature = null, float $breathingFrequency = null, float $oxygenSaturation = null, float $heartBeat = null)
     {
+        $this->id = $id;
         $this->email = $email;
         $this->lastName = $lastName;
         $this->firstName = $firstName;
         $this->gender = $gender;
         $this->age = $age;
-        $this->city = $city;
+        $this->town = $town;
         $this->zipCode = $zipCode;
         $this->street = $street;
         $this->phone = $phone;
@@ -248,20 +250,20 @@ class Patient
     }
 
     /**
-     * @return string
+     * @return Town
      */
-    public function getCity(): string
+    public function getTown(): Town
     {
-        return $this->city;
+        return $this->town;
     }
 
     /**
-     * @param string $city
+     * @param Town $town
      * @return Patient
      */
-    public function setCity(string $city): Patient
+    public function setTown(Town $town): Patient
     {
-        $this->city = $city;
+        $this->town = $town;
         return $this;
     }
 
@@ -304,7 +306,7 @@ class Patient
     /**
      * @return string
      */
-    public function getPhone(): string
+    public function getPhone(): ?string
     {
         return $this->phone;
     }
@@ -521,16 +523,16 @@ class Patient
     {
         return new self(
             $data['id'],
+            $data['email'],
             $data['lastName'],
             $data['firstName'],
-            $data['email'],
             $data['gender'],
             $data['age'],
-            $data['city'],
+            $data['town'],
             $data['zipCode'],
             $data['street'],
-            $data['phone'],
             $data['mobile'],
+            $data['phone'],
             $data['antecedent'],
             $data['treatment'],
             $data['symptoms'],

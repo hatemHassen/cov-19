@@ -1,0 +1,17 @@
+{% extends 'back/base.html.twig' %}
+{% form_theme form 'bootstrap_3_horizontal_layout.html.twig' %}
+{% trans_default_domain 'dayNumbers' %}
+{% block body %}
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">{{'dayNumbers.createDayNumbersAction.newDayNumbers'|trans}}</h6>
+        </div>
+        <div class="card-body">
+            {{ form(form) }}
+            <div class="col-lg-8 col-lg-offset-1 well">
+                <a href="{{ path('admin_day_numbers_list') }}" class="btn btn-light">&laquo; {{'common.back'|trans({},'messages')}}</a>
+            </div>
+        </div>
+
+    </div>
+{% endblock %}

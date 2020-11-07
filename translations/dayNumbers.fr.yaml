@@ -1,0 +1,19 @@
+dayNumbers:
+  createDayNumbersAction:
+    newDayNumbers: Remplir les chiffres du jour
+    form:
+      success: Les chiffres sont sauvgardés avec succès
+      date: Date
+      newCases: Nb. total de nouveaux cas
+      newDeaths: Nb. de nouveaux décès
+      newHealedCases: Nb. des nouveaux cas rétablis
+      town: Ville
+  listDayNumbersAction:
+    dayNumbers: Les chiffres du jour
+    new: Ajouter Les chiffres du jour
+    id: Id
+    date: Date
+    newCases: Nb. total de nouveaux cas
+    newDeaths: Nb. de nouveaux décès
+    newHealedCases: Nb. des nouveaux cas rétablis
+    town: Ville

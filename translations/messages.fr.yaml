@@ -11,6 +11,8 @@ dashboard:
 base:
   dashbord: Tableau de board
   towns: Villes
+  patients: patients
+  dayNumbers: Les chiffres du jour
   title: Cov-19.tn
 home:
   menu:

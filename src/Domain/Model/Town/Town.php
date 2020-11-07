@@ -4,6 +4,8 @@
 namespace App\Domain\Model\Town;
 
 
+use App\Domain\Model\DayNumbers\DayNumbers;
+use App\Domain\Model\Patient\Patient;
 use App\Infrastructure\Traits\SlugifyTrait;
 use Exception;
 
@@ -24,7 +26,17 @@ class Town
     /**
      * @var string
      */
-    private $color;
+    protected $color;
+
+    /**
+     * @var array
+     */
+    protected $patients;
+
+    /**
+     * @var array
+     */
+    protected $dayNumbers;
 
     /**
      * Town constructor.
@@ -136,5 +148,57 @@ class Town
         );
     }
 
+    /**
+     * @return array
+     */
+    public function getPatients(): array
+    {
+        return $this->patients;
+    }
 
+    /**
+     * @param Patient $patient
+     * @return Town
+     */
+    public function addPatients(Patient $patient): Town
+    {
+        $this->patients[$patient->getId()] = $patient;
+        return $this;
+    }
+    /**
+     * @param Patient $patient
+     * @return Town
+     */
+    public function removePatients(Patient $patient): Town
+    {
+       unset($this->patients[$patient->getId()]);
+        return $this;
+    }
+    /**
+     * @return array
+     */
+    public function getDayNumbers(): array
+    {
+        return $this->dayNumbers;
+    }
+
+    /**
+     * @param DayNumbers $dayNumbers
+     * @return Town
+     */
+    public function addDayNumbers(DayNumbers $dayNumbers): Town
+    {
+        $this->dayNumbers[$dayNumbers->getId()] = $dayNumbers;
+        return $this;
+    }
+
+    /**
+     * @param DayNumbers $dayNumbers
+     * @return Town
+     */
+    public function removeDayNumbers(DayNumbers $dayNumbers): Town
+    {
+        unset($this->dayNumbers[$dayNumbers->getId()]);
+        return $this;
+    }
 }

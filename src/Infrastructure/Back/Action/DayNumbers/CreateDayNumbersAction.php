@@ -1,10 +1,10 @@
 <?php
 
 
-namespace App\Infrastructure\Front\Action\Patient;
+namespace App\Infrastructure\Back\Action\DayNumbers;
 
 
-use App\Infrastructure\Front\Form\Type\CreatePatientFormType;
+use App\Infrastructure\Back\Form\Type\CreateDayNumbersFormType;
 use App\Infrastructure\Utils\Action\Action;
 use Psr\Container\ContainerInterface;
 use Symfony\Component\Form\FormFactoryInterface;
@@ -16,7 +16,7 @@ use Symfony\Component\Messenger\MessageBusInterface;
 use Symfony\Component\Routing\RouterInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
-class CreatePatientAction implements Action
+class CreateDayNumbersAction implements Action
 {
     private $container;
     private $router;
@@ -51,7 +51,7 @@ class CreatePatientAction implements Action
      */
     public function __invoke(Request $request): Response
     {
-        $form = $this->formFactory->create(CreatePatientFormType::class);
+        $form = $this->formFactory->create(CreateDayNumbersFormType::class);
         $form->handleRequest($request);
 
         if ($form->isSubmitted()) {
@@ -61,7 +61,7 @@ class CreatePatientAction implements Action
             }
         }
 
-        return new Response($this->container->get('twig')->render('front/patient/CreatePatientAction.html.twig', [
+        return new Response($this->container->get('twig')->render('back/dayNumbers/CreateDayNumbersAction.html.twig', [
             'form' => $form->createView()
         ]));
     }
@@ -71,8 +71,9 @@ class CreatePatientAction implements Action
      */
     private function onSuccess(): RedirectResponse
     {
-        $this->session->getFlashBag()->add('success', $this->translator->trans('patient.createPatientAction.form.success',[],'patient'));
-        return new RedirectResponse($this->router->generate('patient_create'));
+        $this->session->getFlashBag()->add('success', $this->translator->trans('dayNumbers.createDayNumbersAction.form.success',[],'dayNumbers'));
+
+        return new RedirectResponse($this->router->generate('admin_day_numbers_list'));
     }
 
 }

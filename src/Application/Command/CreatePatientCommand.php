@@ -3,6 +3,7 @@
 
 namespace App\Application\Command;
 
+use App\Domain\Model\Town\Town;
 
 class CreatePatientCommand
 {
@@ -27,9 +28,9 @@ class CreatePatientCommand
      */
     protected $age;
     /**
-     * @var string
+     * @var Town
      */
-    protected $city;
+    protected $town;
     /**
      * @var string
      */
@@ -94,30 +95,30 @@ class CreatePatientCommand
      * @param $firstName
      * @param int $gender
      * @param int $age
-     * @param string $city
+     * @param Town $town
      * @param string $zipCode
      * @param string $street
-     * @param string $phone
      * @param string $mobile
+     * @param string|null $phone
      * @param array $antecedent
      * @param array $treatment
      * @param array $symptoms
-     * @param \DateTime $symptomsStartDate
+     * @param \DateTime|null $symptomsStartDate
      * @param bool $doctorVisited
      * @param bool $emergencyVisited
-     * @param float $temperature
-     * @param float $breathingFrequency
-     * @param float $oxygenSaturation
-     * @param float $heartBeat
+     * @param float|null $temperature
+     * @param float|null $breathingFrequency
+     * @param float|null $oxygenSaturation
+     * @param float|null $heartBeat
      */
-    public function __construct(string $email, string $lastName, $firstName, int $gender, int $age, string $city, string $zipCode, string $street, string $phone, string $mobile, array $antecedent, array $treatment, array $symptoms, \DateTime $symptomsStartDate, bool $doctorVisited, bool $emergencyVisited, float $temperature, float $breathingFrequency, float $oxygenSaturation, float $heartBeat)
+    public function __construct(string $email, string $lastName, $firstName, int $gender, int $age, Town $town, string $zipCode, string $street, string $mobile , string $phone = null, array $antecedent = [], array $treatment = [], array $symptoms = [], \DateTime $symptomsStartDate = null , bool $doctorVisited = false, bool $emergencyVisited = false, float $temperature = null, float $breathingFrequency = null, float $oxygenSaturation = null, float $heartBeat = null)
     {
         $this->email = $email;
         $this->lastName = $lastName;
         $this->firstName = $firstName;
         $this->gender = $gender;
         $this->age = $age;
-        $this->city = $city;
+        $this->town = $town;
         $this->zipCode = $zipCode;
         $this->street = $street;
         $this->phone = $phone;
@@ -176,11 +177,11 @@ class CreatePatientCommand
     }
 
     /**
-     * @return string
+     * @return Town
      */
-    public function getCity(): string
+    public function getTown(): Town
     {
-        return $this->city;
+        return $this->town;
     }
 
     /**
@@ -202,7 +203,7 @@ class CreatePatientCommand
     /**
      * @return string
      */
-    public function getPhone(): string
+    public function getPhone(): ?string
     {
         return $this->phone;
     }
@@ -295,8 +296,4 @@ class CreatePatientCommand
         return $this->heartBeat;
     }
 
-    public function getName()
-    {
-        return $this->name;
-    }
 }

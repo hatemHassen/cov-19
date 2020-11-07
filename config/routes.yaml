@@ -6,6 +6,22 @@ town_list:
   path: 'admin/town/list'
   defaults: { _controller: 'App\Infrastructure\Back\Action\Town\ListTownAction' }
 
+admin_patient_create:
+  path: 'admin/patient/create'
+  defaults: { _controller: 'App\Infrastructure\Back\Action\Patient\CreatePatientAction' }
+
+admin_patient_list:
+  path: 'admin/patient/list'
+  defaults: { _controller: 'App\Infrastructure\Back\Action\Patient\ListPatientAction' }
+
+admin_day_numbers_create:
+  path: 'admin/day-numbers/create'
+  defaults: { _controller: 'App\Infrastructure\Back\Action\DayNumbers\CreateDayNumbersAction' }
+
+admin_day_numbers_list:
+  path: 'admin/day-numbers/list'
+  defaults: { _controller: 'App\Infrastructure\Back\Action\DayNumbers\ListDayNumbersAction' }
+
 login:
   path: 'admin/login'
   defaults: { _controller: 'App\Infrastructure\Back\Action\Login\LoginUserAction' }
