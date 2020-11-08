@@ -35,7 +35,7 @@ class CreatePatientCommandHandler implements MessageHandlerInterface
     public function __invoke(CreatePatientCommand $command): void
     {
 
-        $town = new Patient(
+        $patient = new Patient(
             uniqid('', true),
             $command->getEmail(),
             $command->getLastName(),
@@ -56,11 +56,14 @@ class CreatePatientCommandHandler implements MessageHandlerInterface
             $command->getTemperature(),
             $command->getBreathingFrequency(),
             $command->getOxygenSaturation(),
-            $command->getHeartBeat()
+            $command->getHeartBeat(),
+            $command->getStatus(),
+            $command->getType(),
+            $command->getComment()
         );
 
-        $this->patientRepository->create($town);
-        $this->eventDispatcher->dispatch(new PatientEvent($town),PatientEvents::CREATED);
+        $this->patientRepository->create($patient);
+        $this->eventDispatcher->dispatch(new PatientEvent($patient),PatientEvents::CREATED);
 
     }
 

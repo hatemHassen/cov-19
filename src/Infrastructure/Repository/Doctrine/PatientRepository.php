@@ -12,8 +12,8 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\NonUniqueResultException;
 use Doctrine\ORM\OptimisticLockException;
 use Doctrine\ORM\ORMException;
-use Doctrine\ORM\Query;
 use Doctrine\Persistence\ManagerRegistry;
+use Doctrine\ORM\Query;
 
 class PatientRepository extends ServiceEntityRepository implements PatientRepositoryInterface
 {
@@ -21,25 +21,24 @@ class PatientRepository extends ServiceEntityRepository implements PatientReposi
     {
         parent::__construct($registry, Patient::class);
     }
-    /**
-     * @param int $id
-     * @return Patient
-     * @throws PatientException
-     * @throws NonUniqueResultException
-     */
-    public function getById(int $id): Patient
-    {
-        $result = $this->createQueryBuilder('q')
-            ->where(['id' => $id])
-            ->getQuery()
-            ->setHydrationMode(Query::HYDRATE_ARRAY)
-            ->getOneOrNullResult();
 
-        if (null === $result) {
+    /**
+     * @param string $id
+     * @return Patient
+     * @throws NonUniqueResultException
+     * @throws PatientException
+     */
+    public function getById(string $id): Patient
+    {
+        $q = $this->createQueryBuilder('q');
+        $patient = $q->where($q->expr()->eq('q.id', ':id'))
+            ->setParameter('id', $id)
+            ->getQuery()
+            ->getOneOrNullResult();
+        if (null === $patient) {
             throw new PatientException("Patient doesn't exist.");
         }
-
-        return Patient::fromArray($result);
+        return $patient;
     }
 
     /**
@@ -54,14 +53,36 @@ class PatientRepository extends ServiceEntityRepository implements PatientReposi
     }
 
     /**
+     * @param Patient $patient
+     * @throws ORMException
+     * @throws OptimisticLockException
+     */
+    public function delete(Patient $patient): void
+    {
+        $this->_em->remove($patient);
+        $this->_em->flush();
+    }
+
+    /**
+     * @throws ORMException
+     * @throws OptimisticLockException
+     */
+    public function flush(): void
+    {
+        $this->_em->flush();
+    }
+
+    /**
      * @param int $limit
      * @param int $offset
-     * @return ArrayCollection|Patient[]
+     * @param int $type
+     * @return ArrayCollection
      */
-    public function getList(int $limit = 0, int $offset = 0): ArrayCollection
+    public function getList(int $limit = 0, int $offset = 0, int $type = 1): ArrayCollection
     {
-        $q = $this->createQueryBuilder('q');
-
+        $q = $this->createQueryBuilder('p');
+        $q->where($q->expr()->eq('p.type', ':type'));
+        $q->setParameter('type', $type);
         if ($offset > 0) {
             $q->setFirstResult($offset);
         }

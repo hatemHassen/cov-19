@@ -12,7 +12,7 @@ use Twig\Error\LoaderError as LoaderErrorAlias;
 use Twig\Error\RuntimeError as RuntimeErrorAlias;
 use Twig\Error\SyntaxError as SyntaxErrorAlias;
 
-class ListPatientAction implements Action
+class BackListPatientAction implements Action
 {
     private $query;
 
@@ -32,7 +32,7 @@ class ListPatientAction implements Action
     public function __invoke(Request $request, Environment $environment): Response
     {
         return new Response($environment->render('back/patient/ListPatientAction.html.twig', [
-            'patients' => $this->query->execute(),
+            'patients' => $this->query->execute(['type' => 1]),
         ]));
     }
 

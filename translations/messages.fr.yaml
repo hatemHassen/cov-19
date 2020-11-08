@@ -1,6 +1,7 @@
 common:
   back: Retour
   create: Créer
+  update: Modifier
   send: Envoyer
 dashboard:
   index:
@@ -11,7 +12,9 @@ dashboard:
 base:
   dashbord: Tableau de board
   towns: Villes
-  patients: patients
+  patients:
+    back: patients depuis l'admin
+    front: Patients depuis le site
   dayNumbers: Les chiffres du jour
   title: Cov-19.tn
 home:

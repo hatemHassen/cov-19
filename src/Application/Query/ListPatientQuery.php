@@ -29,7 +29,7 @@ class ListPatientQuery implements Query
      */
     public function execute(array $args = []): ArrayCollection
     {
-        $list = $this->patientRepository->getList();
+        $list = $this->patientRepository->getList($args['limit'] ?? 0, $args['offset'] ?? 0, $args['type'] ?? 1);
         foreach ($list as $patient) {
             $this->eventDispatcher->dispatch(
                 new PatientEvent($patient),

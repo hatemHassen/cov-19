@@ -94,10 +94,22 @@ class Patient
      * @var float
      */
     protected $heartBeat;
+    /**
+     * @var int
+     */
+    protected $status;
+    /**
+     * @var int
+     */
+    protected $type;
+    /**
+     * @var string |null
+     */
+    protected $comment;
 
     /**
      * Patient constructor.
-     * @param string|null $id
+     * @param string $id
      * @param string $email
      * @param string $lastName
      * @param $firstName
@@ -118,8 +130,11 @@ class Patient
      * @param float|null $breathingFrequency
      * @param float|null $oxygenSaturation
      * @param float|null $heartBeat
+     * @param int $status
+     * @param int $type
+     * @param string|null $comment
      */
-    public function __construct(string $id,string $email, string $lastName, $firstName, int $gender, int $age, Town $town, string $zipCode, string $street, string $mobile , string $phone = null, array $antecedent = [], array $treatment = [], array $symptoms = [], \DateTime $symptomsStartDate = null , bool $doctorVisited = false, bool $emergencyVisited = false, float $temperature = null, float $breathingFrequency = null, float $oxygenSaturation = null, float $heartBeat = null)
+    public function __construct(string $id, string $email, string $lastName, $firstName, int $gender, int $age, Town $town, string $zipCode, string $street, string $mobile , string $phone = null, array $antecedent = [], array $treatment = [], array $symptoms = [], \DateTime $symptomsStartDate = null , bool $doctorVisited = false, bool $emergencyVisited = false, float $temperature = null, float $breathingFrequency = null, float $oxygenSaturation = null, float $heartBeat = null, int $status = 0, int $type = 0, ?string $comment = null)
     {
         $this->id = $id;
         $this->email = $email;
@@ -142,7 +157,11 @@ class Patient
         $this->breathingFrequency = $breathingFrequency;
         $this->oxygenSaturation = $oxygenSaturation;
         $this->heartBeat = $heartBeat;
+        $this->status = $status;
+        $this->type = $type;
+        $this->comment = $comment;
     }
+
 
     /**
      * @return string
@@ -315,10 +334,10 @@ class Patient
     }
 
     /**
-     * @param string $phone
+     * @param string|null $phone
      * @return Patient
      */
-    public function setPhone(string $phone): Patient
+    public function setPhone(string $phone = null): Patient
     {
         $this->phone = $phone;
         return $this;
@@ -522,6 +541,61 @@ class Patient
         return $this;
     }
 
+    /**
+     * @return int
+     */
+    public function getStatus(): int
+    {
+        return $this->status;
+    }
+
+    /**
+     * @param int $status
+     * @return Patient
+     */
+    public function setStatus(int $status): Patient
+    {
+        $this->status = $status;
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getType(): int
+    {
+        return $this->type;
+    }
+
+    /**
+     * @param int $type
+     * @return Patient
+     */
+    public function setType(int $type): Patient
+    {
+        $this->type = $type;
+        return $this;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getComment(): ?string
+    {
+        return $this->comment;
+    }
+
+    /**
+     * @param string|null $comment
+     * @return Patient
+     */
+    public function setComment(?string $comment): Patient
+    {
+        $this->comment = $comment;
+        return $this;
+    }
+
+
     public static function fromArray(array $data): self
     {
         return new self(
@@ -545,7 +619,10 @@ class Patient
             $data['temperature'],
             $data['breathingFrequency'],
             $data['oxygenSaturation'],
-            $data['heartBeat']
+            $data['heartBeat'],
+            $data['status'],
+            $data['type'],
+            $data['comment']
         );
     }
 }

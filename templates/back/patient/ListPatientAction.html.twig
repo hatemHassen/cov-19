@@ -20,6 +20,8 @@
                         <th>{{'patient.listPatientAction.town'|trans}}</th>
                         <th>{{'patient.listPatientAction.zipCode'|trans}}</th>
                         <th>{{'patient.listPatientAction.mobile'|trans}}</th>
+                        <th>{{'patient.listPatientAction.status'|trans}}</th>
+                        <th>{{'patient.listPatientAction.actions.actions'|trans}}</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -34,6 +36,12 @@
                             <td>{{ patient.town.name }}</td>
                             <td>{{ patient.zipCode }}</td>
                             <td>{{ patient.mobile }}</td>
+                            <td>{{ (patient.status == 0 ? 'patient.createPatientAction.form.status.inProgress': 'patient.createPatientAction.form.status.treated')|trans }}</td>
+                            <td>
+                                <a href="{{ path('admin_patient_update',{'id':patient.id}) }}">{{ 'patient.listPatientAction.actions.update'|trans }}</a><br/>
+                                <a href="{{ path('admin_patient_delete',{'id':patient.id}) }}">{{ 'patient.listPatientAction.actions.delete'|trans }}</a><br/>
+                                <a href="{{ path('admin_patient_view',{'id':patient.id}) }}">{{ 'patient.listPatientAction.actions.view'|trans }}</a>
+                            </td>
                         </tr>
                     {% endfor %}
                     </tbody>

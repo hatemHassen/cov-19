@@ -4,7 +4,8 @@
 namespace App\Infrastructure\Back\Action\Patient;
 
 
-use App\Infrastructure\Back\Form\Type\CreatePatientFormType;
+use App\Domain\Model\Patient\Patient;
+use App\Infrastructure\Back\Form\Type\UpdatePatientFormType;
 use App\Infrastructure\Utils\Action\Action;
 use Psr\Container\ContainerInterface;
 use Symfony\Component\Form\FormFactoryInterface;
@@ -15,8 +16,11 @@ use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Messenger\MessageBusInterface;
 use Symfony\Component\Routing\RouterInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
+use Twig\Error\LoaderError;
+use Twig\Error\RuntimeError;
+use Twig\Error\SyntaxError;
 
-class CreatePatientAction implements Action
+class UpdatePatientAction implements Action
 {
     private $container;
     private $router;
@@ -44,16 +48,16 @@ class CreatePatientAction implements Action
 
     /**
      * @param Request $request
+     * @param Patient $patient
      * @return Response
-     * @throws \Twig\Error\LoaderError
-     * @throws \Twig\Error\RuntimeError
-     * @throws \Twig\Error\SyntaxError
+     * @throws LoaderError
+     * @throws RuntimeError
+     * @throws SyntaxError
      */
-    public function __invoke(Request $request): Response
+    public function __invoke(Request $request, Patient $patient): Response
     {
-        $form = $this->formFactory->create(CreatePatientFormType::class);
+        $form = $this->formFactory->create(UpdatePatientFormType::class, $patient);
         $form->handleRequest($request);
-
         if ($form->isSubmitted()) {
             if ($form->isValid()) {
                 $this->bus->dispatch($form->getData());
@@ -71,7 +75,7 @@ class CreatePatientAction implements Action
      */
     private function onSuccess(): RedirectResponse
     {
-        $this->session->getFlashBag()->add('success', $this->translator->trans('patient.createPatientAction.form.create.success',[],'patient'));
+        $this->session->getFlashBag()->add('success', $this->translator->trans('patient.createPatientAction.form.update.success', [], 'patient'));
 
         return new RedirectResponse($this->router->generate('admin_back_patient_list'));
     }

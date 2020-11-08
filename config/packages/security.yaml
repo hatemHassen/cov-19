@@ -7,7 +7,8 @@ security:
         users_in_memory:
             memory:
                 users:
-                    admin: { password: '$argon2id$v=19$m=65536,t=4,p=1$HQkYFkp1m80ArN9np39flA$XDaWWi4xPmPqcIs4Hgc5QKB/iPpxwrCOf9ptv/f9qZc' , roles: 'ROLE_ADMIN' }
+#                    @Dm1n
+                    'admin@covid.tn': { password: '$argon2id$v=19$m=65536,t=4,p=1$FVkjJw1BWWZP5mLYypgNJA$v5FadhQfTgVZ8ftsacJ1Lps+Ld+tZfHgbQn9v9HPG8Y' , roles: 'ROLE_ADMIN' }
     firewalls:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/

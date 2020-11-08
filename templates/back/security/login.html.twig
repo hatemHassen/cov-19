@@ -5,18 +5,18 @@
                <div>{{ error.message }}</div>
            {% endif %}
            <div class="form-group">
-               <input type="text" class="form-control form-control-user" id="username" name="_username" value="{{ last_username }}"  aria-describedby="emailHelp" placeholder="Enter Email Address...">
+               <input type="text" class="form-control form-control-user" id="username" name="_username" value="{{ last_username }}"  aria-describedby="emailHelp" placeholder="Entrer l'adresse e-mail...">
            </div>
            <div class="form-group">
-               <input type="password" class="form-control form-control-user" id="password" name="_password"  placeholder="Password">
+               <input type="password" class="form-control form-control-user" id="password" name="_password"  placeholder="Mot de passe">
            </div>
-           <div class="form-group">
-               <div class="custom-control custom-checkbox small">
-                   <input type="checkbox" class="custom-control-input" id="remember_me" name="_remember_me" checked/>
-                   <label class="custom-control-label" for="remember_me">Remember Me</label>
-               </div>
-           </div>
-           <button type="submit" class="btn btn-primary btn-user btn-block">login</button>
+{#           <div class="form-group">#}
+{#               <div class="custom-control custom-checkbox small">#}
+{#                   <input type="checkbox" class="custom-control-input" id="remember_me" name="_remember_me" checked/>#}
+{#                   <label class="custom-control-label" for="remember_me">Se souvenir de moi</label>#}
+{#               </div>#}
+{#           </div>#}
+           <button type="submit" class="btn btn-primary btn-user btn-block">Connexion</button>
 
        </form>
    {% endblock %}

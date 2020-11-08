@@ -3,6 +3,12 @@ patient:
     newPatient: Remplir le formulaire de consultation et de référence pour un patient suspecté de Covid 19
     form:
       success: Formulaire envoyé avec succès
+      delete:
+        success: Patient supprimé avec succès
+      create:
+        success: Patient ajouté avec succès
+      update:
+        success: Patient modifié avec succès
       email: Email
       lastName: Nom
       firstName: Prénom
@@ -12,6 +18,11 @@ patient:
         women: Femme
       age: Age
       town: Ville
+      status:
+        label: Statut
+        inProgress: En cours
+        treated: Traité
+      comment: Commentaire
       zipCode: Code postal
       street: Adresse
       phone: Télophone fix
@@ -72,4 +83,73 @@ patient:
     town: Ville
     zipCode: Code postal
     mobile: Téléphone mobile
-
+    status: Statut
+    actions:
+      actions: Actions
+      update: Modifier
+      delete: Supprimer
+      view: Détails
+  viewPatientAction:
+    viewPatient: Details Patient
+    email: Email
+    lastName: Nom
+    firstName: Prénom
+    gender:
+      label: Genre
+      men: Homme
+      women: Femme
+    age: Age
+    town: Ville
+    status:
+      label: Statut
+      inProgress: En cours
+      treated: Traité
+    comment: Commentaire
+    zipCode: Code postal
+    street: Adresse
+    phone: Télophone fix
+    mobile: Téléphone mobile
+    antecedent:
+      label: Antécédant
+      1: TABAC
+      2: Diabète
+      3: Maladie Cardiovasculaires
+      4: Maladie Pulmonaire Chronique
+      5: Asthme
+      6: BPCO
+      7: Néphropathie Chronique
+      8: Patient gréffé
+      9: Cirrhoses
+      10: Hémopathie
+      11: Autres maladies
+      12: Rien
+    treatment:
+      label: Traitement en cours
+      1: Corticothérapie par voie générale
+      2: Biothérapie
+      3: Chimiothérapie
+      4: Autres
+    symptoms:
+      label: Symptômes
+      1: Fièvre
+      2: Toux
+      3: Douleur thoracique
+      4: Douleurs / courbatures musculaires
+      5: Perte de force
+      6: Conjonctivite (oculaire)
+      7: Signes neurologiques
+      8: Signes du système digestif (flux gastro-intestinal, reflux)
+      9: Douleur à la déglutition
+      10: Maux de tête
+      11: Perte d'odeur
+      12: Autres symptômes
+    symptomsStartDate: Date de début des symptômes
+    doctorVisited: Visiter un medecin ?
+    emergencyVisited: Visiter l'urgence ?
+    temperature: Temperature
+    breathingFrequency: Fréquence de respiration
+    oxygenSaturation: Saturation en oxygène
+    heartBeat: Un rythme cardiaque rapide?
+    choice:
+      yes: Oui
+      no: Non

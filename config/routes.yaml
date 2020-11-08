@@ -10,10 +10,24 @@ admin_patient_create:
   path: 'admin/patient/create'
   defaults: { _controller: 'App\Infrastructure\Back\Action\Patient\CreatePatientAction' }
 
-admin_patient_list:
-  path: 'admin/patient/list'
-  defaults: { _controller: 'App\Infrastructure\Back\Action\Patient\ListPatientAction' }
+admin_patient_update:
+  path: 'admin/patient/update/{id}'
+  defaults: { _controller: 'App\Infrastructure\Back\Action\Patient\UpdatePatientAction' }
 
+admin_patient_delete:
+  path: 'admin/patient/delete/{id}'
+  defaults: { _controller: 'App\Infrastructure\Back\Action\Patient\DeletePatientAction' }
+
+admin_patient_view:
+  path: 'admin/patient/view/{id}'
+  defaults: { _controller: 'App\Infrastructure\Back\Action\Patient\ViewPatientAction' }
+
+admin_front_patient_list:
+  path: 'admin/patient/list/site'
+  defaults: { _controller: 'App\Infrastructure\Back\Action\Patient\FrontListPatientAction' }
+admin_back_patient_list:
+  path: 'admin/patient/list/admin'
+  defaults: { _controller: 'App\Infrastructure\Back\Action\Patient\BackListPatientAction' }
 admin_day_numbers_create:
   path: 'admin/day-numbers/create'
   defaults: { _controller: 'App\Infrastructure\Back\Action\DayNumbers\CreateDayNumbersAction' }

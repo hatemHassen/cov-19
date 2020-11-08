@@ -32,9 +32,7 @@ class DashboardAction implements Action
     public function __invoke(Request $request, Environment $environment): Response
     {
 
-        return new Response($environment->render('back/dashboard/index.html.twig',[
-            'towns' => $this->listTownQuery->execute(),
-        ]));
+        return new Response($environment->render('back/dashboard/index.html.twig'));
     }
 
 }

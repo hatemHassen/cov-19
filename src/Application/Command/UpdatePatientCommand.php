@@ -3,10 +3,15 @@
 
 namespace App\Application\Command;
 
+
 use App\Domain\Model\Town\Town;
 
-class CreatePatientCommand
+class UpdatePatientCommand
 {
+    /**
+     * @var string |null
+     */
+    protected $id;
     /**
      * @var string
      */
@@ -101,7 +106,8 @@ class CreatePatientCommand
     protected $comment;
 
     /**
-     * CreatePatientCommand constructor.
+     * UpdatePatientCommand constructor.
+     * @param string $id
      * @param string $email
      * @param string $lastName
      * @param $firstName
@@ -126,8 +132,9 @@ class CreatePatientCommand
      * @param int $type
      * @param string|null $comment
      */
-    public function __construct(string $email, string $lastName, $firstName, int $gender, int $age, Town $town, string $zipCode, string $street, string $mobile , string $phone = null, array $antecedent = [], array $treatment = [], array $symptoms = [], \DateTime $symptomsStartDate = null , bool $doctorVisited = false, bool $emergencyVisited = false, float $temperature = null, float $breathingFrequency = null, float $oxygenSaturation = null, float $heartBeat = null, int $status = 0, int $type = 0, ?string $comment = null)
+    public function __construct(string $id, string $email, string $lastName, $firstName, int $gender, int $age, Town $town, string $zipCode, string $street, string $mobile, string $phone = null, array $antecedent = [], array $treatment = [], array $symptoms = [], \DateTime $symptomsStartDate = null, bool $doctorVisited = false, bool $emergencyVisited = false, float $temperature = null, float $breathingFrequency = null, float $oxygenSaturation = null, float $heartBeat = null, int $status = 0, int $type = 0, ?string $comment = null)
     {
+        $this->id = $id;
         $this->email = $email;
         $this->lastName = $lastName;
         $this->firstName = $firstName;
@@ -153,6 +160,13 @@ class CreatePatientCommand
         $this->comment = $comment;
     }
 
+    /**
+     * @return string|null
+     */
+    public function getId(): ?string
+    {
+        return $this->id;
+    }
 
     /**
      * @return string
@@ -337,5 +351,4 @@ class CreatePatientCommand
     {
         return $this->comment;
     }
-
 }

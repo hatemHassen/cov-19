@@ -55,6 +55,19 @@ App\Domain\Model\Patient\Patient:
       type: float
     heartBeat:
       type: float
+    status:
+      type: integer
+      options:
+        unsigned: true
+        default: 0
+    type:
+      type: integer
+      options:
+        unsigned: true
+        default: 0
+    comment:
+      type: text
+      nullable: true
     createdAt:
       type: datetime
       gedmo:

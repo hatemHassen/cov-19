@@ -1,0 +1,55 @@
+{% extends 'back/base.html.twig' %}
+{% trans_default_domain 'patient' %}
+{% block body %}
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">{{'patient.viewPatientAction.viewPatient'|trans}}</h6>
+        </div>
+        <div class="card-body">
+            <div class="col-lg-8 col-lg-offset-1 well">
+                <p><span>{{ 'patient.viewPatientAction.email'|trans }}: </span>{{ patient.email }}</p>
+                <p><span>{{ 'patient.viewPatientAction.firstName'|trans }}: </span>{{ patient.firstName }}</p>
+                <p><span>{{ 'patient.viewPatientAction.lastName'|trans }}: </span>{{ patient.lastName }}</p>
+                <p><span>{{ 'patient.viewPatientAction.gender.label'|trans }}: </span>{{ patient.gender }}</p>
+                <p><span>{{ 'patient.viewPatientAction.age'|trans }}: </span>{{ patient.age }}</p>
+                <p><span>{{ 'patient.viewPatientAction.street'|trans }}: </span>{{ patient.street }}</p>
+                <p><span>{{ 'patient.viewPatientAction.town'|trans }}: </span>{{ patient.town.name }}</p>
+                <p><span>{{ 'patient.viewPatientAction.zipCode'|trans }}: </span>{{ patient.zipCode }}</p>
+                <p><span>{{ 'patient.viewPatientAction.mobile'|trans }}: </span>{{ patient.mobile }}</p>
+                <p><span>{{ 'patient.viewPatientAction.phone'|trans }}: </span>{{ patient.phone }}</p>
+                <p>
+                    <span>{{ 'patient.viewPatientAction.antecedent.label'|trans }}: </span>
+                    {% for elem in patient.antecedent %}
+                        <br/>
+                       - {{ ('patient.viewPatientAction.antecedent.'~elem)|trans }}
+                    {% endfor %}
+                </p>
+                <p><span>{{ 'patient.viewPatientAction.treatment.label'|trans }}: </span>
+                    {% for elem in patient.treatment %}
+                        <br/>
+                      - {{ ('patient.viewPatientAction.treatment.'~elem)|trans }}
+                    {% endfor %}
+                </p>
+                <p><span>{{ 'patient.viewPatientAction.symptoms.label'|trans }}: </span>
+                    {% for elem in patient.symptoms %}
+                        <br/>
+                        - {{ ('patient.viewPatientAction.symptoms.'~elem)|trans }}
+                    {% endfor %}
+                </p>
+                <p><span>{{ 'patient.viewPatientAction.symptomsStartDate'|trans }}: </span>{{ patient.symptomsStartDate | date('d-m-Y') }}</p>
+                <p><span>{{ 'patient.viewPatientAction.doctorVisited'|trans }}: </span>{{ (patient.doctorVisited == 0 ? 'patient.viewPatientAction.choice.no': 'patient.viewPatientAction.choice.yes')|trans }}</p>
+                <p><span>{{ 'patient.viewPatientAction.emergencyVisited'|trans }}: </span>{{ (patient.emergencyVisited == 0 ? 'patient.viewPatientAction.choice.no': 'patient.viewPatientAction.choice.yes')|trans }}</p>
+                <p><span>{{ 'patient.viewPatientAction.temperature'|trans }}: </span>{{ patient.temperature }}</p>
+                <p><span>{{ 'patient.viewPatientAction.breathingFrequency'|trans }}: </span>{{ patient.breathingFrequency }}</p>
+                <p><span>{{ 'patient.viewPatientAction.oxygenSaturation'|trans }}: </span>{{ patient.oxygenSaturation }}%</p>
+                <p><span>{{ 'patient.viewPatientAction.heartBeat'|trans }}: </span>{{ patient.heartBeat }}</p>
+                <p><span>{{ 'patient.viewPatientAction.status.label'|trans }}: </span>{{ (patient.status == 0 ? 'patient.viewPatientAction.status.inProgress': 'patient.viewPatientAction.status.treated')|trans }}</p>
+                <p><span>{{ 'patient.viewPatientAction.comment'|trans }}: </span>{{ patient.comment }}</p>
+            </div>
+            <div class="col-lg-8 col-lg-offset-1 well">
+                <a href="{{ path('admin_back_patient_list') }}" class="btn btn-light">&laquo; {{'common.back'|trans({},'messages')}}</a>
+            </div>
+        </div>
+
+    </div>
+{% endblock %}
