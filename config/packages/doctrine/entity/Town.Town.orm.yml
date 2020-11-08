@@ -12,6 +12,16 @@ App\Domain\Model\Town\Town:
     name:
       type: string
       length: 255
+    createdAt:
+      type: datetime
+      gedmo:
+        timestampable:
+          on: create
+    updatedAt:
+      type: datetime
+      gedmo:
+        timestampable:
+          on: update
   oneToMany:
     patients:
       targetEntity: App\Domain\Model\Patient\Patient

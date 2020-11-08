@@ -17,6 +17,16 @@ App\Domain\Model\DayNumbers\DayNumbers:
       type: integer
     date:
       type: date
+    createdAt:
+      type: datetime
+      gedmo:
+        timestampable:
+          on: create
+    updatedAt:
+      type: datetime
+      gedmo:
+        timestampable:
+          on: update
   manyToOne:
     town:
       targetEntity: App\Domain\Model\Town\Town

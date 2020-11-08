@@ -6,12 +6,14 @@ namespace App\Domain\Model\Town;
 
 use App\Domain\Model\DayNumbers\DayNumbers;
 use App\Domain\Model\Patient\Patient;
+use App\Domain\Traits\Timestampable;
 use App\Infrastructure\Traits\SlugifyTrait;
 use Exception;
 
 class Town
 {
     use SlugifyTrait;
+    use Timestampable;
 
     protected $id;
     /**

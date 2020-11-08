@@ -55,6 +55,16 @@ App\Domain\Model\Patient\Patient:
       type: float
     heartBeat:
       type: float
+    createdAt:
+      type: datetime
+      gedmo:
+        timestampable:
+          on: create
+    updatedAt:
+      type: datetime
+      gedmo:
+        timestampable:
+          on: update
   manyToOne:
     town:
       targetEntity: App\Domain\Model\Town\Town

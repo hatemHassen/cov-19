@@ -5,9 +5,12 @@ namespace App\Domain\Model\DayNumbers;
 
 
 use App\Domain\Model\Town\Town;
+use App\Domain\Traits\Timestampable;
 
 class DayNumbers
 {
+    use Timestampable;
+
     /**
      * @var string
      */

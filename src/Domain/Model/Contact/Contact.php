@@ -4,8 +4,12 @@
 namespace App\Domain\Model\Contact;
 
 
+use App\Domain\Traits\Timestampable;
+
 class Contact
 {
+    use Timestampable;
+
     protected $id;
     /**
      * @var string

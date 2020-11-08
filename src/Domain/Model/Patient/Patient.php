@@ -3,9 +3,12 @@
 
 namespace App\Domain\Model\Patient;
 use App\Domain\Model\Town\Town;
+use App\Domain\Traits\Timestampable;
 
 class Patient
 {
+    use Timestampable;
+
     /**
      * @var string
      */

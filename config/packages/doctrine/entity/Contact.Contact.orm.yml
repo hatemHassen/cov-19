@@ -17,3 +17,13 @@ App\Domain\Model\Contact\Contact:
       length: 255
     message:
       type: text
+    createdAt:
+      type: datetime
+      gedmo:
+        timestampable:
+          on: create
+    updatedAt:
+      type: datetime
+      gedmo:
+        timestampable:
+          on: update
