@@ -5,6 +5,7 @@ namespace App\Infrastructure\Back\Action\Dashboard;
 
 use App\Application\Query\ListTownQuery;
 use App\Infrastructure\Utils\Action\Action;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Twig\Environment;
@@ -32,7 +33,7 @@ class DashboardAction implements Action
     public function __invoke(Request $request, Environment $environment): Response
     {
 
-        return new Response($environment->render('back/dashboard/index.html.twig'));
+        return new JsonResponse($environment->render('back/dashboard/index.html.twig'));
     }
 
 }
