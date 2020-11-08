@@ -18,20 +18,22 @@
                         <div class="collapse navbar-collapse sub-menu-bar" id="navbarSupportedContent">
                             <ul id="nav" class="navbar-nav ml-auto">
                                 <li class="nav-item">
-                                    <a href="{{path('home')}}#home">{{'home.menu.home' |trans}}</a>
+                                    <a href="{{path('home')}}">{{'home.menu.home' |trans}}</a>
+                                </li>
+                                {% if app.request.attributes.get('_route') == 'home' %}
+                                <li class="nav-item">
+                                    <a class="page-scroll" href="#keyNumbers">{{'home.menu.keyNumbers' |trans}}</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="page-scroll" href="{{path('home')}}#keyNumbers">{{'home.menu.keyNumbers' |trans}}</a>
+                                    <a class="page-scroll" href="#survey">{{'home.menu.survey' |trans}}</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="page-scroll" href="{{path('home')}}#survey">{{'home.menu.survey' |trans}}</a>
+                                    <a class="page-scroll" href="#situation">{{'home.menu.situation' |trans}}</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="page-scroll" href="{{path('home')}}#situation">{{'home.menu.situation' |trans}}</a>
+                                    <a class="page-scroll" href="#contact">{{'home.menu.contact' |trans}}</a>
                                 </li>
-                                <li class="nav-item">
-                                    <a class="page-scroll" href="{{path('home')}}#contact">{{'home.menu.contact' |trans}}</a>
-                                </li>
+                                {% endif %}
                             </ul>
                         </div> <!-- navbar collapse -->
                     </nav> <!-- navbar -->

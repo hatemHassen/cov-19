@@ -17,6 +17,8 @@ use Symfony\Component\Form\FormInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use App\Domain\Model\Town\Town;
+use Karser\Recaptcha3Bundle\Form\Recaptcha3Type;
+use Karser\Recaptcha3Bundle\Validator\Constraints\Recaptcha3;
 
 class CreatePatientFormType extends AbstractType implements DataMapperInterface
 {
@@ -84,6 +86,10 @@ class CreatePatientFormType extends AbstractType implements DataMapperInterface
             ->add('oxygenSaturation', NumberType ::class, ['label' => 'patient.createPatientAction.form.oxygenSaturation'])
             ->add('heartBeat', ChoiceType::class, ['label' => 'patient.createPatientAction.form.heartBeat', 'choices' => self::BOOLEAN_CHOICES, 'expanded' => true, 'multiple' => false])
             ->add('send', SubmitType::class, ['attr' => ['class' => 'btn-hover btn-block main-btn'], 'translation_domain' => 'messages', 'label' => 'common.send'])
+            ->add('captcha', Recaptcha3Type::class, [
+                'constraints' => new Recaptcha3(),
+                'action_name' => 'homepage',
+            ])
             ->setDataMapper($this);
     }
 

@@ -51,8 +51,8 @@ patient:
         lossSmell: Perte d'odeur
         other: Autres symptômes
       symptomsStartDate: Date de début des symptômes
-      doctorVisited: visiter un medecin ?
-      emergencyVisited: visiter l'urgence ?
+      doctorVisited: Visiter un medecin ?
+      emergencyVisited: Visiter l'urgence ?
       temperature: Temperature
       breathingFrequency: Fréquence de respiration
       oxygenSaturation: Saturation en oxygène
